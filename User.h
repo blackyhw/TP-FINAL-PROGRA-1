@@ -14,7 +14,7 @@ typedef struct{
   int phoneNumber;
   char passWord[12];
   int state;
-  stSong playList;
+  stSong playList[200];
 
 }stUser;
 
