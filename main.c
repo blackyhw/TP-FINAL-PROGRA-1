@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <conio.h>
+
 void menuBepefy();
-void  desactivarMaximizar();
+void desactivarMaximizar();
+void dibujarCuadro(int x1,int y1,int x2,int y2);
+void gotoxy(int x,int y);
+void ocultarCursor();
+void barraCarga(int bordeIzq, int bordeDer, int fila);
 int main()
 {
 
@@ -15,12 +21,12 @@ menuBepefy ();
   void menuBepefy(){
 
 
-
+    int opcion=NULL;
     desactivarMaximizar();
     system("mode con: cols=81 lines=23");
     system("color F0");
-   dibujarCuadro(2,5,78,11);
-    char opcion = 0;
+    dibujarCuadro(2,5,78,11);
+
     gotoxy(2,6);
     printf("            ____     _____    ____    _____    _____   __     __                \n");
     gotoxy(2,7);
@@ -48,36 +54,36 @@ menuBepefy ();
     printf("                | 4. Salir                                    |\n");
     printf("                |_____________________________________________|\n");
 
-
-
-
-         system("cls");
+        fflush(stdin);
+        opcion = getch();
+        system("cls");
 
 
 
          switch (opcion)
          {
-             case 1:
+             case 49:
                 // void menuUser();
                 break;
 
-            case 2:
+            case 50:
                 //void menuSongs();
                 break;
 
-            case 3:
+            case 51:
                 //void menuLibrary();
                 break;
 
-            case 4:
+            case 52:
                 break;
 
             default:
                 printf("Opcion incorrecta.\n");
                 Beep(750, 800);
+                system("cls");
                 break;
          }
-    }while (opcion != 4);
+    }while (opcion != 52);
 
     printf("FIN DE PROGRAMA");
     Beep(750, 800);
@@ -119,6 +125,7 @@ void desactivarMaximizar()
 
 void barraCarga(int bordeIzq, int bordeDer, int fila)
 {
+
     int i;
 
     system("color F0");
