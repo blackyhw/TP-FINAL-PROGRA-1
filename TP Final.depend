@@ -1,7 +1,9 @@
 # depslib dependency file v1.0
-1717267822 source:c:\users\gamer\documents\final\tp final\main.c
+1717474415 source:c:\users\gamer\documents\final\tp final\main.c
 	<stdio.h>
 	<stdlib.h>
+	<windows.h>
+	<conio.h>
 
 1717468395 source:c:\users\bepis\desktop\tp-final\main.c
 	<stdio.h>
@@ -48,7 +50,7 @@
 	<stdlib.h>
 	"Song.h"
 
-1717474161 source:c:\users\gamer\documents\final\tp final\system.c
+1717521880 source:c:\users\gamer\documents\final\tp final\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
