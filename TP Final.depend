@@ -3,3 +3,57 @@
 	<stdio.h>
 	<stdlib.h>
 
+1717468395 source:c:\users\bepis\desktop\tp-final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+
+1717370814 source:c:\users\bepis\desktop\tp-final\song.c
+	"Song.h"
+
+1717370814 c:\users\bepis\desktop\tp-final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717370814 source:c:\users\bepis\desktop\tp-final\user.c
+	"User.h"
+
+1717383451 c:\users\bepis\desktop\tp-final\user.h
+	<stdio.h>
+	<stdlib.h>
+	"Song.h"
+
+1717383451 source:c:\users\bepis\desktop\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717383451 c:\users\bepis\desktop\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717376968 source:c:\users\gamer\documents\final\tp final\song.c
+	"Song.h"
+
+1717376968 c:\users\gamer\documents\final\tp final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717376968 source:c:\users\gamer\documents\final\tp final\user.c
+	"User.h"
+
+1717474409 c:\users\gamer\documents\final\tp final\user.h
+	<stdio.h>
+	<stdlib.h>
+	"Song.h"
+
+1717474161 source:c:\users\gamer\documents\final\tp final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717474179 c:\users\gamer\documents\final\tp final\system.h
+	<stdio.h>
+	<stdlib.h>
+

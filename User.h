@@ -27,5 +27,4 @@ typedef struct{
 
 
 
-
 #endif // USER_H_INCLUDED
