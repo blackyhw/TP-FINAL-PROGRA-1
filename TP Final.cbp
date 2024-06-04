@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Song.h" />
+		<Unit filename="System.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="System.h" />
 		<Unit filename="User.c">
 			<Option compilerVar="CC" />
 		</Unit>
