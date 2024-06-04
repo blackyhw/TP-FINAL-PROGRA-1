@@ -5,7 +5,7 @@
 void menuBepefy(){
 
 
-    int opcion=NULL;
+    int option=NULL;
 
     system("mode con: cols=81 lines=23");
     system("color F0");
@@ -39,12 +39,12 @@ void menuBepefy(){
     printf("                |_____________________________________________|\n");
 
         fflush(stdin);
-        opcion = getch();
+        option = getch();
         system("cls");
 
 
 
-         switch (opcion)
+         switch (option)
          {
              case 49:
                 // void menuUser();
@@ -67,7 +67,7 @@ void menuBepefy(){
                 system("cls");
                 break;
          }
-    }while (opcion != 52);
+    }while (option != 52);
 
     printf("FIN DE PROGRAMA");
     Beep(750, 800);
