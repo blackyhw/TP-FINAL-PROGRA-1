@@ -5,6 +5,4 @@
 #include <stdlib.h>
 
 
-void menuBepefy();
 #endif // SYSTEM_H_INCLUDED
-
