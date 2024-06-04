@@ -3,7 +3,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1717381813 source:c:\users\bepis\desktop\tp-final\main.c
+1717468395 source:c:\users\bepis\desktop\tp-final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -19,8 +19,17 @@
 1717370814 source:c:\users\bepis\desktop\tp-final\user.c
 	"User.h"
 
-1717370814 c:\users\bepis\desktop\tp-final\user.h
+1717383451 c:\users\bepis\desktop\tp-final\user.h
 	<stdio.h>
 	<stdlib.h>
 	"Song.h"
+
+1717383451 source:c:\users\bepis\desktop\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717383451 c:\users\bepis\desktop\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
 
