@@ -4,23 +4,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 #include "Song.h"
 
 typedef struct{
   int id;
-  char name[50];
-  char username[30];
-  char email[15];
+  char*username;
+  char*email;
   int phoneNumber;
-  char passWord[12];
+  char*passWord;
   int state;
   stSong playList[200];
 
 }stUser;
-
-
-
-
+stUser*userFileToArray();
+int dimFile(char*nameFile,int size1);
+int searchUsername(char*username,stUser*list,int dim);
 
 
 
