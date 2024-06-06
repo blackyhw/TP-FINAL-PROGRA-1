@@ -1,5 +1,95 @@
 # depslib dependency file v1.0
-1717267822 source:c:\users\gamer\documents\final\tp final\main.c
+1717653212 source:c:\users\gamer\documents\final\tp final\main.c
 	<stdio.h>
 	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"User.h"
+
+1717468395 source:c:\users\bepis\desktop\tp-final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+
+1717370814 source:c:\users\bepis\desktop\tp-final\song.c
+	"Song.h"
+
+1717370814 c:\users\bepis\desktop\tp-final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717370814 source:c:\users\bepis\desktop\tp-final\user.c
+	"User.h"
+
+1717383451 c:\users\bepis\desktop\tp-final\user.h
+	<stdio.h>
+	<stdlib.h>
+	"Song.h"
+
+1717383451 source:c:\users\bepis\desktop\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717383451 c:\users\bepis\desktop\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717376968 source:c:\users\gamer\documents\final\tp final\song.c
+	"Song.h"
+
+1717648315 c:\users\gamer\documents\final\tp final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717653502 source:c:\users\gamer\documents\final\tp final\user.c
+	"User.h"
+
+1717653502 c:\users\gamer\documents\final\tp final\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1717639716 source:c:\users\gamer\documents\final\tp final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717639716 c:\users\gamer\documents\final\tp final\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717657645 source:c:\users\beto xd\documents\programacion\tp-final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"User.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717384076 source:c:\users\beto xd\documents\programacion\tp-final\song.c
+	"Song.h"
+
+1717657776 source:c:\users\beto xd\documents\programacion\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717654781 source:c:\users\beto xd\documents\programacion\tp-final\user.c
+	"User.h"
 
