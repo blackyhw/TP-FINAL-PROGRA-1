@@ -5,14 +5,24 @@
 #include "User.h"
 int main()
 {
-    User a;
+    ///Version sin Puntero
+
+    /*User a;
     a = searchUsername("manflet");
 
-    if(a.username != NULL){
+    *if(a.username != NULL){
         printf("%s",a.username);
     }
-    else{
-        printf("El usuario no se encuentra");
+    */
+
+    ///Version con Puntero
+    User *a;
+    a = searchUsername2("manfle");
+    if(a->username){
+        printf("%s",a->username);
+    }else{
+        printf("Usuario no existe");
     }
+
     return 0;
 }

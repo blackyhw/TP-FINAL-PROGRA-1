@@ -18,7 +18,7 @@ typedef struct{
 
 }User;
 User searchUsername(char*username);
-
+User* searchUsername2(char*username);
 
 
 
