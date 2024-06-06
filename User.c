@@ -1,47 +1,24 @@
 #include "User.h"
 
-stUser*userFileToArray(){
-    stUser * aux = NULL;
-    FILE*arch = fopen("Users.bin","rb");
+User searchUsername(char*username){
 
-    if(!arch){
-         printf("Error en el archivo");
-         return aux;
-    }
+    User aux, user;
+    int flag = 0;
 
-    stUser*users;
+    FILE * archi = fopen("Users.bin","rb");
 
-    int dim = sizeof(arch)/sizeof(stUser);
+    if(archi != NULL)
+    {
 
-    users  = (stUser*)malloc(sizeof(arch));
-
-    fclose(arch);
-    return users;
-}
-int dimFile(char*nameFile,int size1){
-    FILE*arch = fopen(nameFile,"rb");
-    int cant = 0;
-
-    if(arch){
-        fseek(arch,0,SEEK_END);
-        cant = ftell(arch)/size1;
-        fclose(arch);
-    }
-    return cant;
-}
-
-
-int searchUsername(char*username,stUser*list,int dim){
-
-    int pos = -1;
-    int i = 0;
-
-    while(i<dim && pos == -1){
-        if(strcmp(list[i].username,username) == 0){
-        pos = i;
+        while(flag == 0 && fread(&aux,sizeof(User),1,archi)> 0)
+        {
+            if(strcmp(aux.username,username)==0)
+            {
+                user = aux;
+                flag = 1;
+            }
         }
-        i++;
+        fclose(archi);
     }
-    return pos;
-
+        return user;
 }

@@ -5,11 +5,14 @@
 #include "User.h"
 int main()
 {
-    stUser user;
-    stUser*userList = userFileToArray();
-    int dimUsers = dimFile("Users.bin",sizeof(stUser));
-    int userLoc = searchUsername("OrbMeister",userList,dimUsers);
-    user = userList[userLoc];
-    printf("%d",userLoc);
+    User a;
+    a = searchUsername("manflet");
+
+    if(a.username != NULL){
+        printf("%s",a.username);
+    }
+    else{
+        printf("El usuario no se encuentra");
+    }
     return 0;
 }

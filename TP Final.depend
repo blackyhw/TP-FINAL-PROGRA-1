@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1717646954 source:c:\users\gamer\documents\final\tp final\main.c
+1717653212 source:c:\users\gamer\documents\final\tp final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -39,14 +39,14 @@
 1717376968 source:c:\users\gamer\documents\final\tp final\song.c
 	"Song.h"
 
-1717376968 c:\users\gamer\documents\final\tp final\song.h
+1717648315 c:\users\gamer\documents\final\tp final\song.h
 	<stdio.h>
 	<stdlib.h>
 
-1717647300 source:c:\users\gamer\documents\final\tp final\user.c
+1717653502 source:c:\users\gamer\documents\final\tp final\user.c
 	"User.h"
 
-1717647300 c:\users\gamer\documents\final\tp final\user.h
+1717653502 c:\users\gamer\documents\final\tp final\user.h
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>

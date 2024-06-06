@@ -9,17 +9,15 @@
 
 typedef struct{
   int id;
-  char*username;
-  char*email;
+  char username[20];
+  char email[30];
   int phoneNumber;
-  char*passWord;
+  char passWord[15];
   int state;
-  stSong playList[200];
+  Song playList[200];
 
-}stUser;
-stUser*userFileToArray();
-int dimFile(char*nameFile,int size1);
-int searchUsername(char*username,stUser*list,int dim);
+}User;
+User searchUsername(char*username);
 
 
 
