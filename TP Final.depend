@@ -61,3 +61,35 @@
 	<stdio.h>
 	<stdlib.h>
 
+1717657645 source:c:\users\beto xd\documents\programacion\tp-final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"User.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717384076 source:c:\users\beto xd\documents\programacion\tp-final\song.c
+	"Song.h"
+
+1717657776 source:c:\users\beto xd\documents\programacion\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717654781 c:\users\beto xd\documents\programacion\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717654781 source:c:\users\beto xd\documents\programacion\tp-final\user.c
+	"User.h"
+
