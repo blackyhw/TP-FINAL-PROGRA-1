@@ -5,7 +5,8 @@
 #include "User.h"
 int main()
 {
-    loginMenuBepefy();
+//    loginMenuBepefy();
+    menuBepefy();
 
     return 0;
 }
