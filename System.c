@@ -124,14 +124,13 @@ void subMenuLogin(){
     User *a = NULL;
     int val = NULL;
 
-<<<<<<< HEAD
         printf("\Login\n");
 
         printf("Ingrese su nombre de usuario: ");
         fflush(stdin);
         gets(username);
 
-        printf("Ingrese su contraseña: ");
+        printf("Ingrese su contraseÃ±a: ");
         fflush(stdin);
         gets(password);
 
@@ -140,15 +139,13 @@ void subMenuLogin(){
            menuBepefy();
         }else{
             system("cls");
-            printf("Usuario o contraseña Incorrecto\n");
-            printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
+            printf("Usuario o contraseÃ±a Incorrecto\n");
+            printf("Por favor intente nuevamente con un usuario o contraseÃ±a valido\n");
             system("pause");
             system("cls");
         }
 }
-=======
 void menuUser(){
->>>>>>> main
 
     int flag = 0;
     int option = 0;
