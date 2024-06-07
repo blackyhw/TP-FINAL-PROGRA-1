@@ -107,7 +107,7 @@ void menuBepefy(){
                 break;
 
             case 50:
-                //void menuSongs();
+                menuSongs();
                 break;
 
             case 51:
@@ -179,3 +179,59 @@ void menuUser(){
         }
     }
 }
+
+void menuSongs(){
+
+    int option = 0;
+
+    while(1){
+
+        printf("\nELIGA UNA OPCION.\n");
+
+        printf("\n1. Mi Playlist\n");
+        printf("\n2. Biblioteca\n");
+        printf("\n3. Buscar una cancion\n");
+        printf("\n4. Volver al menu principal.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+                ///menuPlaylist();
+                break;
+
+            case 50:
+
+                ///menuLibrary();
+                break;
+
+            case 51:
+
+                ///stSong searchSong();
+                break;
+
+            case 52:
+
+                menuBepefy();
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+    }
+}
+
+
+
+
+
+
+

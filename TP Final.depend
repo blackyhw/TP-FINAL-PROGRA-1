@@ -61,7 +61,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1717733606 source:c:\users\beto xd\documents\programacion\tp-final\main.c
+1717784606 source:c:\users\beto xd\documents\programacion\tp-final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -81,7 +81,7 @@
 1717384076 source:c:\users\beto xd\documents\programacion\tp-final\song.c
 	"Song.h"
 
-1717733753 source:c:\users\beto xd\documents\programacion\tp-final\system.c
+1717784606 source:c:\users\beto xd\documents\programacion\tp-final\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
