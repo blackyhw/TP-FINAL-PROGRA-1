@@ -92,7 +92,7 @@ void menuBepefy(){
          switch (option)
          {
              case 49:
-                // void menuUser();
+                menuUser();
                 break;
 
             case 50:
@@ -124,6 +124,7 @@ void subMenuLogin(){
     User *a = NULL;
     int val = NULL;
 
+<<<<<<< HEAD
         printf("\Login\n");
 
         printf("Ingrese su nombre de usuario: ");
@@ -145,4 +146,54 @@ void subMenuLogin(){
             system("cls");
         }
 }
+=======
+void menuUser(){
+>>>>>>> main
 
+    int flag = 0;
+    int option = 0;
+
+    while(1){
+
+        printf("\nELIGA UNA OPCION.\n");
+
+        printf("\n1. Dar de baja al usuario.\n");
+        printf("\n2. Editar usuario.\n");
+        printf("\n3. Mostrar datos del usuario.\n");
+        printf("\n4. Volver al menu principal.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+                ///flag = delUser(stUser);
+                break;
+
+            case 50:
+
+                ///menuEditUser();
+                break;
+
+            case 51:
+
+                ///showUser(stUser);
+                break;
+
+            case 52:
+
+                menuBepefy();
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+    }
+}
