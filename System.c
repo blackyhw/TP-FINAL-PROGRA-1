@@ -2,6 +2,62 @@
 #include "Song.h"
 #include "User.h"
 
+void loginMenuBepefy(){
+
+    int option = 0;
+    int verify = 1;
+
+    do{
+
+        printf("\nELIGA UNA OPCION.\n");
+
+        printf("\n1. Registrarse\n");
+        printf("\n2. Login\n");
+        printf("\n3. Salir\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+                ///register();
+                break;
+
+            case 50:
+
+                /// verify = accVerify(stUser);
+
+                if(verify == 0){
+
+                    printf("No se encontro el usuario en el sistema.\n");
+                }
+                else if(verify == 1){
+
+                    menuBepefy();
+                }
+
+                break;
+
+            case 51:
+
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+
+    }while(option != 51);
+
+    printf("\nFIN DEL PROGRAMA\n");
+}
+
 void menuBepefy(){
 
 
@@ -73,4 +129,5 @@ void menuBepefy(){
     Beep(750, 800);
 
   }
+
 
