@@ -27,18 +27,7 @@ void loginMenuBepefy(){
                 break;
 
             case 50:
-
-                /// verify = accVerify(stUser);
-
-                if(verify == 0){
-
-                    printf("No se encontro el usuario en el sistema.\n");
-                }
-                else if(verify == 1){
-
-                    menuBepefy();
-                }
-
+                subMenuLogin();
                 break;
 
             case 51:
@@ -129,5 +118,31 @@ void menuBepefy(){
     Beep(750, 800);
 
   }
+void subMenuLogin(){
+    char username [15];
+    char password [15];
+    User *a = NULL;
+    int val = NULL;
 
+        printf("\Login\n");
+
+        printf("Ingrese su nombre de usuario: ");
+        fflush(stdin);
+        gets(username);
+
+        printf("Ingrese su contraseña: ");
+        fflush(stdin);
+        gets(password);
+
+        val = accVerify(a,username,password);
+        if(val == 1 ){
+           menuBepefy();
+        }else{
+            system("cls");
+            printf("Usuario o contraseña Incorrecto\n");
+            printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
+            system("pause");
+            system("cls");
+        }
+}
 
