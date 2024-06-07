@@ -6,9 +6,6 @@
 int main()
 {
     loginMenuBepefy();
-<<<<<<< HEAD
-=======
 
->>>>>>> main
     return 0;
 }
