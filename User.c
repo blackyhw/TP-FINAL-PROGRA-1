@@ -1,7 +1,6 @@
 #include "User.h"
 
-User* searchUsername(char*username)
-{
+User* searchUsername(char*username){
 
     User*a = NULL;
     User aux;
@@ -21,3 +20,14 @@ User* searchUsername(char*username)
 
     return a;
 }
+int accVerify(User *u,char*username,char*passWord){
+    u = searchUsername(username);
+    if(u){
+        if(strcmp(u->passWord,passWord) == 0){
+            return 1;
+        }
+    }
+    return 0;
+
+}
+

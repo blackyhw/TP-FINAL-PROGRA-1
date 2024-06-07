@@ -18,7 +18,7 @@ typedef struct{
 
 }User;
 User* searchUsername(char*username);
-
+int accVerify(User *u,char*username,char*passWord);
 
 
 

@@ -93,3 +93,35 @@
 1717731583 source:c:\users\beto xd\documents\programacion\tp-final\user.c
 	"User.h"
 
+1717376968 source:c:\users\gamer\documents\final\tpfinal\song.c
+	"Song.h"
+
+1717729240 c:\users\gamer\documents\final\tpfinal\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1717738081 source:c:\users\gamer\documents\final\tpfinal\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1717738367 c:\users\gamer\documents\final\tpfinal\system.h
+	<stdio.h>
+	<stdlib.h>
+
+1717737908 c:\users\gamer\documents\final\tpfinal\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1717738383 source:c:\users\gamer\documents\final\tpfinal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"User.h"
+
+1717738367 source:c:\users\gamer\documents\final\tpfinal\user.c
+	"User.h"
+
