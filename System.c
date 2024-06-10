@@ -96,7 +96,7 @@ void menuBepefy(){
                 break;
 
             case 50:
-                //void menuSongs();
+                menuSongs();
                 break;
 
             case 51:
@@ -124,14 +124,17 @@ void subMenuLogin(){
     User *a = NULL;
     int val = NULL;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e5e810b7f4cc9072c06b9c3d62d10d4573f92b80
         printf("\Login\n");
 
         printf("Ingrese su nombre de usuario: ");
         fflush(stdin);
         gets(username);
 
-        printf("Ingrese su contraseña: ");
+        printf("Ingrese su contraseÃ±a: ");
         fflush(stdin);
         gets(password);
 
@@ -140,15 +143,19 @@ void subMenuLogin(){
            menuBepefy();
         }else{
             system("cls");
-            printf("Usuario o contraseña Incorrecto\n");
-            printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
+            printf("Usuario o contraseÃ±a Incorrecto\n");
+            printf("Por favor intente nuevamente con un usuario o contraseÃ±a valido\n");
             system("pause");
             system("cls");
         }
 }
+<<<<<<< HEAD
 
 void menuUser(){
 
+=======
+void menuUser(){
+>>>>>>> e5e810b7f4cc9072c06b9c3d62d10d4573f92b80
 
     int flag = 0;
     int option = 0;
@@ -197,3 +204,59 @@ void menuUser(){
         }
     }
 }
+
+void menuSongs(){
+
+    int option = 0;
+
+    while(1){
+
+        printf("\nELIGA UNA OPCION.\n");
+
+        printf("\n1. Mi Playlist\n");
+        printf("\n2. Biblioteca\n");
+        printf("\n3. Buscar una cancion\n");
+        printf("\n4. Volver al menu principal.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+                ///menuPlaylist();
+                break;
+
+            case 50:
+
+                ///menuLibrary();
+                break;
+
+            case 51:
+
+                ///stSong searchSong();
+                break;
+
+            case 52:
+
+                menuBepefy();
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+    }
+}
+
+
+
+
+
+
+
