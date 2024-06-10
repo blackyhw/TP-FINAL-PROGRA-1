@@ -124,7 +124,7 @@ void subMenuLogin(){
     User *a = NULL;
     int val = NULL;
 
-<<<<<<< HEAD
+
         printf("\Login\n");
 
         printf("Ingrese su nombre de usuario: ");
@@ -146,9 +146,9 @@ void subMenuLogin(){
             system("cls");
         }
 }
-=======
+
 void menuUser(){
->>>>>>> main
+
 
     int flag = 0;
     int option = 0;
