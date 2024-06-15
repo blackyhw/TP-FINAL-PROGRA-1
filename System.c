@@ -149,13 +149,9 @@ void subMenuLogin(){
             system("cls");
         }
 }
-<<<<<<< HEAD
 
 void menuUser(){
 
-=======
-void menuUser(){
->>>>>>> e5e810b7f4cc9072c06b9c3d62d10d4573f92b80
 
     int flag = 0;
     int option = 0;
