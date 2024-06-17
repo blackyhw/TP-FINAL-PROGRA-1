@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+void loginMenuBepefy();
+void subMenuLogin();
+void menuBepefy();
 
 #endif // SYSTEM_H_INCLUDED

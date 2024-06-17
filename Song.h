@@ -13,7 +13,7 @@ typedef struct{
  char artist[3][50];
  int state;
 
-}stSong;
+}Song;
 
 
 #endif // SONG_H_INCLUDED
