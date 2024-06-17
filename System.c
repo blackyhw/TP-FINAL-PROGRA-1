@@ -124,10 +124,6 @@ void subMenuLogin(){
     User *a = NULL;
     int val = NULL;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e5e810b7f4cc9072c06b9c3d62d10d4573f92b80
         printf("\Login\n");
 
         printf("Ingrese su nombre de usuario: ");
