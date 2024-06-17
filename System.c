@@ -22,8 +22,7 @@ void loginMenuBepefy(){
         switch(option){
 
             case 49:
-
-                ///register();
+                registerUser();
                 break;
 
             case 50:

@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <string.h>
 #include "User.h"
 int main()
 {
-    menuBepefy();
+    loginMenuBepefy();
     return 0;
 }
