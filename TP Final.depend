@@ -100,7 +100,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1717738962 source:c:\users\gamer\documents\final\tpfinal\system.c
+1718051114 source:c:\users\gamer\documents\final\tpfinal\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
@@ -115,13 +115,13 @@
 	<malloc.h>
 	"Song.h"
 
-1717748189 source:c:\users\gamer\documents\final\tpfinal\main.c
+1718048943 source:c:\users\gamer\documents\final\tpfinal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
 	<conio.h>
 	"User.h"
 
-1717837977 source:c:\users\gamer\documents\final\tpfinal\user.c
+1718051078 source:c:\users\gamer\documents\final\tpfinal\user.c
 	"User.h"
 

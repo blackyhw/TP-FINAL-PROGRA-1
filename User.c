@@ -2,7 +2,7 @@
 
 User* searchUsername(char*username){
 
-    User*a = NULL;
+    User*user1 = NULL;
     User aux;
 
     FILE * archi = fopen("Users.bin","rb");
@@ -10,16 +10,17 @@ User* searchUsername(char*username){
     if(!archi)
     {
         printf("El archivo no pudo abrirse correctamente");
+        return user1;
     }
 
-    while(a == NULL && fread(&aux,sizeof(User),1,archi)>0){
+    while(user1 == NULL && fread(&aux,sizeof(User),1,archi)>0){
             if(strcmp(aux.username,username)== 0)
-                a = &aux;
+                user1 = &aux;
         }
 
         fclose(archi);
 
-    return a;
+    return user1;
 }
 
 
