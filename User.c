@@ -15,8 +15,6 @@ User* searchUsername(char*username)
     }
 
     while(user1 == NULL && fread(&aux,sizeof(User),1,archi)>0){
-
-        while(a == NULL && fread(&aux,sizeof(User),1,archi)>0)
         {
             if(strcmp(aux.username,username)== 0)
                 user1 = &aux;

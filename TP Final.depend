@@ -100,26 +100,27 @@
 	<stdio.h>
 	<stdlib.h>
 
-1718051114 source:c:\users\gamer\documents\final\tpfinal\system.c
+1718655108 source:c:\users\gamer\documents\final\tpfinal\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
 
-1717738538 c:\users\gamer\documents\final\tpfinal\system.h
+1718655045 c:\users\gamer\documents\final\tpfinal\system.h
 	<stdio.h>
 	<stdlib.h>
 
-1717738538 c:\users\gamer\documents\final\tpfinal\user.h
+1718655053 c:\users\gamer\documents\final\tpfinal\user.h
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>
 	"Song.h"
 
-1718048943 source:c:\users\gamer\documents\final\tpfinal\main.c
+1718655053 source:c:\users\gamer\documents\final\tpfinal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
 	<conio.h>
+	<string.h>
 	"User.h"
 
 1718051078 source:c:\users\gamer\documents\final\tpfinal\user.c
