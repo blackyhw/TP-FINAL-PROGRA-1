@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+void registerUser();
 void loginMenuBepefy();
 void subMenuLogin();
 void menuBepefy();

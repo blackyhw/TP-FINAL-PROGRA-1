@@ -11,15 +11,14 @@ typedef struct{
   int id;
   char username[21];
   char email[31];
-  char phoneNumber;
-  char passWord[16];
+  char phoneNumber[16];
+  char passWord[21];
   int state;
   Song playList[200];
 
 }User;
 User* searchUsername(char*username);
 int accVerify(User *u,char*username,char*passWord);
-void registerUser();
 int verifyMail(char mail[]);
 int verifyPhone(char phone[]);
 void saveUser(User user);
