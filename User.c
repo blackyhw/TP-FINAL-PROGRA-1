@@ -7,28 +7,66 @@ User* searchUsername(char*username){
 
     FILE * archi = fopen("Users.bin","rb");
 
-    if(!archi)
-    {
-        printf("El archivo no pudo abrirse correctamente");
-    }
-
-    while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
-            if(strcmp(aux.username,username)== 0)
+    if(archi){
+        while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
+                if(strcmpi(aux.username,username)== 0)
                 user = &aux;
         }
+
+
+    }
 
         fclose(archi);
 
     return user;
 }
+User*searchEmail(char*email){
+    User*user = NULL;
+    User aux;
 
+    FILE * archi = fopen("Users.bin","rb");
 
-int accVerify(User *user,char*username,char*passWord){
+    if(archi){
+        while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
+            if(strcmp(aux.email,email) == 0)
+                user = &aux;
+        }
+
+    }
+        fclose(archi);
+
+    return user;
+}
+User*searchPhoneNumber(char*phoneNumber){
+    User*user = NULL;
+    User aux;
+
+    FILE * archi = fopen("Users.bin","rb");
+
+    if(archi){
+        while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
+            if(strcmp(aux.phoneNumber,phoneNumber) == 0)
+                user = &aux;
+        }
+
+    }
+        fclose(archi);
+
+    return user;
+}
+int accVerify(User *user,char*infoToLogin,char*passWord){
     int flag = 0;
-    user = searchUsername(username);
-    if(!user){
 
-        return flag;
+    user = searchUsername(infoToLogin);
+    if(!user){
+            user = searchEmail(infoToLogin);
+                if(!user){
+                    user = searchPhoneNumber(infoToLogin);
+                        if(!user){
+                            return flag;
+                        }
+
+                }
     }
 
     if(strcmp(user->passWord,passWord) == 0){
@@ -125,7 +163,7 @@ int verifyPhone(char phone[])
 void saveUser(User user)
 {
 
-    FILE*archive = fopen("Users.bin", "wb");
+    FILE*archive = fopen("Users.bin", "ab");
 
     if(archive)
     {
