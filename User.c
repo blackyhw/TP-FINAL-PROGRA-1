@@ -37,8 +37,30 @@ int accVerify(User *user,char*username,char*passWord){
     return 0;
 }
 
-int verifyMail(char mail[])
-{
+int verifyValidEmail(char*email){
+    int i = 0;
+    int flag = 0;
+    char*validDomains[] = {"hotmail.com","gmail.com","outlook.com","yahoo.com"};
+    int numDomains = sizeof(validDomains) / sizeof(validDomains[0]);
+
+    char *at = strchr(email, '@');
+    if (at == NULL) {
+        return flag;
+    }
+
+     char *domainPart = at + 1;
+
+     while(i<numDomains && flag == 0){
+        if (strcmpi(domainPart, validDomains[i]) == 0) {
+            flag = 1;
+        }
+
+        i++;
+     }
+    return flag;
+}
+
+int verifyMail(char mail[]){
     User aux;
     int flag=1;
     int i=0;
@@ -67,6 +89,7 @@ int verifyMail(char mail[])
 
     return flag;
 }
+
 
 int verifyPhone(char phone[])
 {
