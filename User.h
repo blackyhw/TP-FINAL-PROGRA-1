@@ -19,6 +19,8 @@ typedef struct{
 }User;
 User* searchUsername(char*username);
 int accVerify(User *u,char*username,char*passWord);
+int verifyAt(char*email);
+int verifyValidEmail(char*email);
 int verifyMail(char mail[]);
 int verifyPhone(char phone[]);
 void saveUser(User user);

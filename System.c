@@ -68,22 +68,26 @@ void registerUser()
     {
         system("cls");
         printf("Ingresar correo electronico:\n");
-        printf("Maximo 30 caracteres.\n");  // verificar la medida del mail.
+        printf("Maximo 30 caracteres.\n");
         fflush(stdin);
-        gets(email);
-        mailVerify = verifyMail(email);
-        if(mailVerify == 0)
-        {
+        scanf("%s",&email);
+        if(verifyValidEmail(email) == 0){
+            printf("Email invalido.\n");
             printf("Desea cancelar la carga? Presione ESCAPE.\n");
             printf("Para volver a intentarlo presione cualquier tecla.\n");
             fflush(stdin);
             option = getch();
-        }
-        else
-        {
-            strcpy(&user.email, email);
-            mailVerify=1;
-        }
+            }else if(verifyMail(email) == 0){
+                printf("El email ya esta en uso, intente uno diferente\n");
+                printf("Desea cancelar la carga? Presione ESCAPE.\n");
+                printf("Para volver a intentarlo presione cualquier tecla.\n");
+                fflush(stdin);
+                option = getch();
+            }else{
+                strcpy(&user.email, email);
+                mailVerify=1;
+            }
+
     }
 
     while(phoneVerify == 0 && option!=27)
