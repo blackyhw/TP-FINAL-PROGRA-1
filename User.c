@@ -9,8 +9,9 @@ User* searchUsername(char*username){
 
     if(archi){
         while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
-                if(strcmpi(aux.username,username)== 0)
+                if(strcmpi(aux.username,username)== 0){
                 user = &aux;
+                }
         }
 
 
@@ -28,8 +29,9 @@ User*searchEmail(char*email){
 
     if(archi){
         while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
-            if(strcmp(aux.email,email) == 0)
+            if(strcmp(aux.email,email) == 0){
                 user = &aux;
+            }
         }
 
     }
@@ -45,8 +47,9 @@ User*searchPhoneNumber(char*phoneNumber){
 
     if(archi){
         while(user == NULL && fread(&aux,sizeof(User),1,archi)>0){
-            if(strcmp(aux.phoneNumber,phoneNumber) == 0)
+            if(strcmp(aux.phoneNumber,phoneNumber) == 0){
                 user = &aux;
+            }
         }
 
     }
@@ -171,4 +174,79 @@ void saveUser(User user)
     }
 
     fclose(archive);
+}
+
+void showUser(User user)
+{
+    printf("--------Nombre de usuario: %s.\n", user.username);
+    printf("--------------------Email: %s.\n", user.email);
+    printf("-------Numero de telefono: %s.\n", user.phoneNumber);
+}
+
+void editMenuUser(User user)
+{
+    int option = 0;
+
+    do
+    {
+        editMenu();
+        option = getch();
+        system("cls");
+
+        switch(option)
+        {
+        case 49:
+            printf("Edicion de nombre de usuario:\n");
+            editUsername(user);
+            printf("Los cambios han sido realizados.\n");
+            system("pause");
+            system("cls");
+            break;
+
+        case 50:
+            printf("Edicion de contrasenia:\n");
+            editPassword(user);
+            printf("Los cambios han sido realizados.\n");
+            system("pause");
+            system("cls");
+            break;
+
+        case 51:
+            printf("Edicion de correo electronico:\n");
+            editEmail(user);
+            printf("Los cambios han sido realizados.\n");
+            system("pause");
+            system("cls");
+            break;
+
+        case 52:
+            printf("Edicion de numero de telefono:\n");
+            editPhoneNumber(user);
+            printf("Los cambios han sido realizados.\n");
+            system("pause");
+            system("cls");
+            break;
+
+        case 53:
+
+            break;
+
+        default:
+                printf("Opcion incorrecta.\n");
+                system("pause");
+                system("cls");
+            break;
+        }
+    }while(option!=53)
+}
+
+void editMenu()
+{
+    printf("---------Editar datos del usuario---------\n");
+    printf("\nSeleccione una opcion:\n");
+    printf("1. Editar nombre de usuario.\n");
+    printf("2. Editar contrasenia.\n");
+    printf("3. Editar correo electronico.\n");
+    printf("4. Editar numero de telefono.\n");
+    printf("5. Salir del menu de edicion.\n");
 }
