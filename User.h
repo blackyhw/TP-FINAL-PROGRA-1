@@ -19,6 +19,7 @@ typedef struct{
 User*searchUsername(char*username);
 User*searchEmail(char*email);
 User*searchPhoneNumber(char*phoneNumber);
+int searchIdFree();
 int accVerify(User *u,char*username,char*passWord);
 int verifyAt(char*email);
 int verifyValidEmail(char*email);

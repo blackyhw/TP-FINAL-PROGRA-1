@@ -74,7 +74,30 @@ int accVerify(User *user,char*infoToLogin,char*passWord){
     }
     return 0;
 }
+int searchIdFree(){
+    User aux;
+    int id = 0;
+    long pos;
+    long sizeUser;
+    long sizeArch;
+    long users;
+   FILE*archi = fopen("Users.bin","rb");
 
+   if(archi){
+        fseek(archi, 0, SEEK_END);
+        sizeUser =  sizeof(User);
+        sizeArch = ftell(archi);
+        users = sizeArch/sizeUser;
+        pos = (users - 1) * sizeUser;
+
+        fseek(archi,pos,SEEK_SET);
+
+        fread(&aux,sizeof(User),1,archi);
+   }
+   fclose(archi);
+
+   return aux.id+1;
+}
 int verifyValidEmail(char*email){
     int i = 0;
     int flag = 0;
@@ -132,22 +155,18 @@ int verifyMail(char mail[]){
 int verifyPhone(char phone[])
 {
     User aux;
-    int flag=1;
-    int i=0;
+    int flag = 0;
+    int i = 0;
 
-
-    while(i<1)
-    {
         FILE*archive = fopen("Users.bin", "rb");
 
         if(archive)
         {
-            while(fread(&aux, sizeof(User), 1, archive)>0)
+            while(flag == 0 && fread(&aux, sizeof(User), 1, archive)>0)
             {
-                if(phone == aux.phoneNumber)
+                if(strcmp(aux.phoneNumber,phone) == 0)
                 {
-                    printf("Error. El numero de telefono ya se encuentra registrado.\n");
-                    flag = 0;
+                    flag = 1;
                 }
             }
         }
@@ -155,7 +174,7 @@ int verifyPhone(char phone[])
         fclose(archive);
 
         i++;
-    }
+
 
     return flag;
 }
