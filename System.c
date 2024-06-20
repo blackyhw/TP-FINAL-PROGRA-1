@@ -46,7 +46,6 @@ void loginMenuBepefy(){
 
     printf("\nFIN DEL PROGRAMA\n");
 }
-
 void menuBepefy(){
 
 
@@ -194,7 +193,6 @@ void menuUser(){
         }
     }
 }
-
 void menuSongs(){
 
     int option = 0;

@@ -81,12 +81,12 @@
 1717384076 source:c:\users\beto xd\documents\programacion\tp-final\song.c
 	"Song.h"
 
-1717786125 source:c:\users\beto xd\documents\programacion\tp-final\system.c
+1717789508 source:c:\users\beto xd\documents\programacion\tp-final\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
 
-1717786125 c:\users\beto xd\documents\programacion\tp-final\system.h
+1717789508 c:\users\beto xd\documents\programacion\tp-final\system.h
 	<stdio.h>
 	<stdlib.h>
 
