@@ -5,12 +5,12 @@
 void registerUser()
 {
     User user;
+    int i = 0;
     char username[21];
     char email[31];
     char phoneNumber[16];
     char password[21];
     char option=NULL;
-    int i=0;
     int nameVerify=0;
     int passVerify=0;
     int mailVerify=0;
@@ -18,6 +18,9 @@ void registerUser()
 
 
     printf(". . . Sistema de registro BEPEFY . . .\n");
+
+    user.id = searchIdFree();
+
 
     while(nameVerify == 0 && option!=27)
     {
@@ -97,8 +100,9 @@ void registerUser()
         fflush(stdin);
         gets(phoneNumber);
         phoneVerify = verifyPhone(phoneNumber);
-        if(phoneVerify == 0)
+        if(phoneVerify == 1)
         {
+            printf("Numero de telefono ocupado, por favor eliga otro\n");
             printf("Desea cancelar la carga? Presione ESCAPE.\n");
             printf("Para volver a intentarlo presione cualquier tecla.\n");
             fflush(stdin);
@@ -123,7 +127,7 @@ void loginMenuBepefy(){
 
     do{
 
-        printf("\nELIGA UNA OPCION.\n");
+        printf("\nSELECCIONE UNA OPCION.\n");
 
         printf("\n1. Registrarse\n");
         printf("\n2. Login\n");

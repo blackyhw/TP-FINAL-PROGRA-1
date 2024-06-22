@@ -96,11 +96,11 @@
 1717376968 source:c:\users\gamer\documents\final\tpfinal\song.c
 	"Song.h"
 
-1717729240 c:\users\gamer\documents\final\tpfinal\song.h
+1718876855 c:\users\gamer\documents\final\tpfinal\song.h
 	<stdio.h>
 	<stdlib.h>
 
-1718700671 source:c:\users\gamer\documents\final\tpfinal\system.c
+1718881290 source:c:\users\gamer\documents\final\tpfinal\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
@@ -109,13 +109,13 @@
 	<stdio.h>
 	<stdlib.h>
 
-1718698455 c:\users\gamer\documents\final\tpfinal\user.h
+1718879652 c:\users\gamer\documents\final\tpfinal\user.h
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>
 	"Song.h"
 
-1718697769 source:c:\users\gamer\documents\final\tpfinal\main.c
+1718881660 source:c:\users\gamer\documents\final\tpfinal\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -123,7 +123,7 @@
 	<string.h>
 	"User.h"
 
-1718701059 source:c:\users\gamer\documents\final\tpfinal\user.c
+1718881533 source:c:\users\gamer\documents\final\tpfinal\user.c
 	"User.h"
 
 1717378645 source:c:\users\matias\documents\tp-final\song.c
