@@ -154,6 +154,7 @@ void loginMenuBepefy(){
             default:
 
                 printf("Opcion incorrecta.\n");
+                system("pause");
                 system("cls");
                 break;
 
