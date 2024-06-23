@@ -16,15 +16,21 @@ typedef struct{
   Song playList[200];
 
 }User;
+int posUser();
 User*searchUsername(char*username);
 User*searchEmail(char*email);
 User*searchPhoneNumber(char*phoneNumber);
 int searchIdFree();
-int accVerify(User *u,char*username,char*passWord);
+User* accVerify(User *user,char*username,char*passWord);
 int verifyAt(char*email);
 int verifyValidEmail(char*email);
 int verifyMail(char mail[]);
 int verifyPhone(char phone[]);
 void saveUser(User user);
+void optionMenuUser();
+void subEditMenuUser(User*user);
+User* editMenuUser(User*user);
+void showUser(int pos);
+void updateUser(intposUser);
 
 #endif // USER_H_INCLUDED

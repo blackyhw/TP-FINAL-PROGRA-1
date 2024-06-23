@@ -3,9 +3,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "User.h"
+
 void registerUser();
 void loginMenuBepefy();
 void subMenuLogin();
-void menuBepefy();
+void menuBepefy(User*user);
+void menuUser(User*user);
+void menuSongs(User user);
 
 #endif // SYSTEM_H_INCLUDED
