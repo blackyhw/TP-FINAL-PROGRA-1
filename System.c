@@ -223,12 +223,8 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
-<<<<<<< HEAD
                 //menuSongs(user);
-=======
-
                 menuSongs(user);
->>>>>>> e0e7d5c1502d7b9c87266961445e50ae7498ad1b
                 break;
 
             case 51:
