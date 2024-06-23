@@ -5,12 +5,12 @@
 void registerUser()
 {
     User user;
+    int i = 0;
     char username[21];
     char email[31];
     char phoneNumber[16];
     char password[21];
     char option=NULL;
-    int i=0;
     int nameVerify=0;
     int passVerify=0;
     int mailVerify=0;
@@ -18,6 +18,9 @@ void registerUser()
 
 
     printf(". . . Sistema de registro BEPEFY . . .\n");
+
+    user.id = searchIdFree();
+
 
     while(nameVerify == 0 && option!=27)
     {
@@ -72,12 +75,7 @@ void registerUser()
         fflush(stdin);
         scanf("%s",&email);
         if(verifyValidEmail(email) == 0){
-            printf("Email invalido.\n");
-            printf("Desea cancelar la carga? Presione ESCAPE.\n");
-            printf("Para volver a intentarlo presione cualquier tecla.\n");
-            fflush(stdin);
-            option = getch();
-            }else if(verifyMail(email) == 0){
+
                 printf("El email ya esta en uso, intente uno diferente\n");
                 printf("Desea cancelar la carga? Presione ESCAPE.\n");
                 printf("Para volver a intentarlo presione cualquier tecla.\n");
@@ -97,8 +95,9 @@ void registerUser()
         fflush(stdin);
         gets(phoneNumber);
         phoneVerify = verifyPhone(phoneNumber);
-        if(phoneVerify == 0)
+        if(phoneVerify == 1)
         {
+            printf("Numero de telefono ocupado, por favor eliga otro\n");
             printf("Desea cancelar la carga? Presione ESCAPE.\n");
             printf("Para volver a intentarlo presione cualquier tecla.\n");
             fflush(stdin);
@@ -116,6 +115,7 @@ void registerUser()
     }
     system("cls");
 }
+
 void loginMenuBepefy(){
 
     int option = 0;
@@ -123,7 +123,7 @@ void loginMenuBepefy(){
 
     do{
 
-        printf("\nELIGA UNA OPCION.\n");
+        printf("\nSELECCIONE UNA OPCION.\n");
 
         printf("\n1. Registrarse\n");
         printf("\n2. Login\n");
@@ -150,6 +150,7 @@ void loginMenuBepefy(){
             default:
 
                 printf("Opcion incorrecta.\n");
+                system("pause");
                 system("cls");
                 break;
 
@@ -165,8 +166,7 @@ void loginMenuBepefy(){
 void subMenuLogin(){
     char infoToLogin [20];
     char password [15];
-    User *a = NULL;
-    int val = NULL;
+    User*user = NULL;
 
         printf("\Login\n");
 
@@ -178,9 +178,9 @@ void subMenuLogin(){
         fflush(stdin);
         gets(password);
 
-        val = accVerify(a,infoToLogin,password);
-        if(val == 1 ){
-           menuBepefy();
+        user = accVerify(user,infoToLogin,password);
+        if(user){
+           menuBepefy(user);
         }else{
             system("cls");
             printf("Usuario o contraseña Incorrecto\n");
@@ -190,11 +190,15 @@ void subMenuLogin(){
         }
 }
 
+<<<<<<< HEAD
 //>>>>>>> 66c3bc83589846febb66c0be3ee72b12e7a556f8
 void menuBepefy(){
+=======
+void menuBepefy(User*user){
+>>>>>>> 2a3dbdc87ac1c5eb3086343dde961ce42964fc55
 
 
-    int option=NULL;
+    int option = NULL;
 
     system("mode con: cols=81 lines=23");
     system("color F0");
@@ -236,11 +240,11 @@ void menuBepefy(){
          switch (option)
          {
              case 49:
-                menuUser();
+                menuUser(user);
                 break;
 
             case 50:
-                menuSongs();
+                //menuSongs(user);
                 break;
 
             case 51:
@@ -252,7 +256,6 @@ void menuBepefy(){
 
             default:
                 printf("Opcion incorrecta.\n");
-                Beep(750, 800);
                 system("cls");
                 break;
          }
@@ -263,11 +266,11 @@ void menuBepefy(){
 
   }
 
-void menuUser(){
+void menuUser(User*user){
     int flag = 0;
     int option = 0;
 
-    while(1){
+    do{
 
         printf("\nELIGA UNA OPCION.\n");
 
@@ -289,17 +292,12 @@ void menuUser(){
 
             case 50:
 
-                ///menuEditUser();
+                subEditMenuUser(user);
                 break;
 
             case 51:
 
-                ///showUser(stUser);
-                break;
-
-            case 52:
-
-                menuBepefy();
+                showUser(posUser(user));
                 break;
 
             default:
@@ -309,10 +307,9 @@ void menuUser(){
                 break;
 
         }
-    }
+    }while(option != 52);
 }
-
-void menuSongs(){
+void menuSongs(User user){
 
     int option = 0;
 
@@ -347,8 +344,6 @@ void menuSongs(){
                 break;
 
             case 52:
-
-                menuBepefy();
                 break;
 
             default:
