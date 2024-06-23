@@ -1,4 +1,5 @@
 #include "User.h"
+
 int posUser(int idUser)
 {
     int pos = -1;
@@ -19,9 +20,9 @@ int posUser(int idUser)
         }
         fclose(archi);
     }
-
     return pos;
 }
+
 User* searchUsername(char*username)
 {
 
@@ -39,8 +40,6 @@ User* searchUsername(char*username)
                 user = &aux;
             }
         }
-
-
     }
 
     fclose(archi);
@@ -62,7 +61,6 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
             {
                 return user;
             }
-
         }
     }
 
@@ -88,7 +86,6 @@ User*searchEmail(char*email)
                 user = &aux;
             }
         }
-
     }
     fclose(archi);
 
@@ -111,13 +108,11 @@ User*searchPhoneNumber(char*phoneNumber)
                 user = &aux;
             }
         }
-
     }
     fclose(archi);
 
     return user;
 }
-
 
 int searchIdFree()
 {
@@ -199,13 +194,11 @@ int verifyMail(char mail[])
         }
 
         fclose(archive);
-
         i++;
     }
 
     return flag;
 }
-
 
 int verifyPhone(char phone[])
 {
@@ -227,9 +220,7 @@ int verifyPhone(char phone[])
     }
 
     fclose(archive);
-
     i++;
-
 
     return flag;
 }
@@ -243,7 +234,6 @@ void saveUser(User user)
     {
         fwrite(&user, sizeof(User),1, archive);
     }
-
     fclose(archive);
 }
 
@@ -385,16 +375,17 @@ User* editMenuUser(User*user)
             }
 
         default:
-            printf("No existe esa opción \n");
+            printf("Opcion invalida, por favor seleccione una opcion existente.\n");
+            system("pause");
             system("cls");
             break;
         }
-
     }while(option != '5' && option != 27);
 
     return user;
 
 }
+
 void updateUser(int posUser)
 {
     User aux;
@@ -414,7 +405,6 @@ void updateUser(int posUser)
 
 
             fwrite(user, sizeof(User), 1, archi);
-
 
         fclose(archi);
     }

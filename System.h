@@ -11,5 +11,7 @@ void subMenuLogin();
 void menuBepefy(User*user);
 void menuUser(User*user);
 void menuSongs(User*user);
+void menuPlaylist(User*user);
+
 
 #endif // SYSTEM_H_INCLUDED

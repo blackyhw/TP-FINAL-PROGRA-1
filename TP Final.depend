@@ -126,10 +126,37 @@
 1718881533 source:c:\users\gamer\documents\final\tpfinal\user.c
 	"User.h"
 
-1717378645 source:c:\users\matias\documents\tp-final\song.c
+1719120337 source:c:\users\matias\documents\tp-final\song.c
 	"Song.h"
 
-1718654001 c:\users\matias\documents\tp-final\song.h
+1719120337 c:\users\matias\documents\tp-final\song.h
 	<stdio.h>
 	<stdlib.h>
+
+1719119436 source:c:\users\matias\documents\tp-final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	<string.h>
+	"User.h"
+
+1719117379 c:\users\matias\documents\tp-final\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1719120381 source:c:\users\matias\documents\tp-final\system.c
+	"System.h"
+	"Song.h"
+	"User.h"
+
+1719120337 c:\users\matias\documents\tp-final\system.h
+	<stdio.h>
+	<stdlib.h>
+	"User.h"
+
+1719119436 source:c:\users\matias\documents\tp-final\user.c
+	"User.h"
 
