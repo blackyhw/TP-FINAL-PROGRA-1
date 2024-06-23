@@ -6,7 +6,7 @@
 #include "User.h"
 int main()
 {
-   loginMenuBepefy
+   loginMenuBepefy();
 
     return 0;
 }
