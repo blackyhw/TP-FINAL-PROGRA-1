@@ -2,8 +2,7 @@
 #include "Song.h"
 #include "User.h"
 
-void registerUser()
-{
+void registerUser(){
     User user;
     int i = 0;
     char username[21];
@@ -190,7 +189,6 @@ void subMenuLogin(){
 
 void menuBepefy(User*user){
 
-
     int option = NULL;
 
     system("mode con: cols=81 lines=23");
@@ -236,7 +234,18 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
+<<<<<<< HEAD
+                //menuSongs(user);
+                break;
+
+            case 51:
+                menuLibrary();
+                break;
+
+            case 52:
+=======
                 menuSongs(user);
+>>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
                 break;
 
             default:
@@ -251,6 +260,7 @@ void menuBepefy(User*user){
   }
 
 void menuUser(User*user){
+
     int flag = 0;
     int option = 0;
 
@@ -293,7 +303,12 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
+<<<<<<< HEAD
+
+void menuSongs(User user){
+=======
 void menuSongs(User*user){
+>>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
 
     int option = 0;
 
@@ -338,6 +353,50 @@ void menuSongs(User*user){
     }while(option !=52);
 }
 
+void menuLibrary(){
+
+    int option = NULL;
+
+    do{
+
+        printf("\nELIJA UNA OPCION.\n\n");
+
+        printf("\n1. Ver la Biblioteca completa.\n");
+        printf("\n2. ver Biblioteca por Orden alfabetico.\n");
+        printf("\n3. ver Biblioteca por Genero.\n");
+        printf("\n4. Salir.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+//                void showLibrary(stSong[]);
+                break;
+
+            case 50:
+
+//                void showLibraryAtoZ(stSong[]);
+                break;
+
+            case 51:
+
+//                void showLibraryGenre(stSong[]);
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+
+    }while(option != 52);
+}
 
 
 
