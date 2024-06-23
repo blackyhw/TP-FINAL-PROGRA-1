@@ -14,5 +14,6 @@ typedef struct{
 
 }Song;
 
+void menuPlaylist(User*user);
 
 #endif // SONG_H_INCLUDED

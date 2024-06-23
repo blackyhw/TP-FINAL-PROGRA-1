@@ -290,7 +290,7 @@ User* editMenuUser(User*user)
     do
     {
         system("cls");
-        printf("Cual campo queres modificar?\n");
+        printf("Cual campo quieres modificar?\n");
         printf("1. Nombre de Usuario\n");
         printf("2. Email \n");
         printf("3. Numero de Telefono\n");
@@ -363,7 +363,7 @@ User* editMenuUser(User*user)
             }
             break;
 
-        case 4:
+        case 52:
             system("cls");
             printf("Ingrese una nueva contrasenia:\n");
             printf("Longitud de 8 a 15 caracteres.\n");
