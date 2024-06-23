@@ -289,10 +289,7 @@ void menuUser(User*user){
 }
 
 void menuSongs(User*user){
-<<<<<<< HEAD
 
-=======
->>>>>>> e0e7d5c1502d7b9c87266961445e50ae7498ad1b
     int option = 0;
 
     do{
@@ -359,11 +356,7 @@ void menuLibrary(){
             case 51:
 //               void showLibraryGenre(stSong[]);
                 break;
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> e0e7d5c1502d7b9c87266961445e50ae7498ad1b
             default:
                 printf("Opcion invalida, por favor seleccione una opcion existente.\n");
                 system("pause");
