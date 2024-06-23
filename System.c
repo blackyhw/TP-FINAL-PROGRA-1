@@ -159,8 +159,8 @@ void loginMenuBepefy(){
 
     printf("\nFIN DEL PROGRAMA\n");
 }
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
 void subMenuLogin(){
     char infoToLogin [20];
@@ -190,7 +190,7 @@ void subMenuLogin(){
         }
 }
 
->>>>>>> 66c3bc83589846febb66c0be3ee72b12e7a556f8
+//>>>>>>> 66c3bc83589846febb66c0be3ee72b12e7a556f8
 void menuBepefy(){
 
 
@@ -311,6 +311,7 @@ void menuUser(){
         }
     }
 }
+
 void menuSongs(){
 
     int option = 0;
@@ -360,6 +361,10 @@ void menuSongs(){
     }
 }
 
+void showPlaylist(User user){
+
+
+}
 
 
 
