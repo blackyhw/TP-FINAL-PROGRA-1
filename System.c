@@ -2,8 +2,7 @@
 #include "Song.h"
 #include "User.h"
 
-void registerUser()
-{
+void registerUser(){
     User user;
     int i = 0;
     char username[21];
@@ -186,7 +185,6 @@ void subMenuLogin(){
 
 void menuBepefy(User*user){
 
-
     int option = NULL;
 
     system("mode con: cols=81 lines=23");
@@ -215,9 +213,8 @@ void menuBepefy(User*user){
     printf("                |       ELIGE UNA OPCION PARA CONTINUAR       |\n");
     printf("                |_____________________________________________|\n");
     printf("                | 1. Usuario                                  |\n");
-    printf("                | 2. Canciones                                |\n");
-    printf("                | 3. Biblioteca                               |\n");
-    printf("                | 4. Salir                                    |\n");
+    printf("                | 2. Biblioteca                               |\n");
+    printf("                | 3. Salir                                    |\n");
     printf("                |_____________________________________________|\n");
 
         fflush(stdin);
@@ -233,13 +230,23 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
+<<<<<<< HEAD
                 //menuSongs(user);
                 break;
 
             case 51:
-                //void menuLibrary();
+                menuLibrary();
                 break;
 
+<<<<<<< HEAD
+=======
+            case 52:
+=======
+                menuSongs(user);
+>>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
+                break;
+
+>>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
             default:
                 printf("Opcion invalida, por favor seleccione una opcion existente.\n");
                 system("pause");
@@ -249,11 +256,11 @@ void menuBepefy(User*user){
     }while (option != 52);
 
     printf("FIN DE PROGRAMA");
-    Beep(750, 800);
 
   }
 
 void menuUser(User*user){
+
     int flag = 0;
     int option = 0;
 
@@ -296,11 +303,20 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
+<<<<<<< HEAD
 void menuSongs(User*user){
+=======
+<<<<<<< HEAD
+
+void menuSongs(User user){
+=======
+void menuSongs(User*user){
+>>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
+>>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
 
     int option = 0;
 
-    while(1){
+    do{
 
         printf("\nELIGA UNA OPCION.\n");
 
@@ -330,6 +346,54 @@ void menuSongs(User*user){
                 ///stSong searchSong();
                 break;
 
+<<<<<<< HEAD
+=======
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+    }while(option !=52);
+}
+
+void menuLibrary(){
+
+    int option = NULL;
+
+    do{
+
+        printf("\nELIJA UNA OPCION.\n\n");
+
+        printf("\n1. Ver la Biblioteca completa.\n");
+        printf("\n2. ver Biblioteca por Orden alfabetico.\n");
+        printf("\n3. ver Biblioteca por Genero.\n");
+        printf("\n4. Salir.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+//                void showLibrary(stSong[]);
+                break;
+
+            case 50:
+
+//                void showLibraryAtoZ(stSong[]);
+                break;
+
+            case 51:
+
+//                void showLibraryGenre(stSong[]);
+                break;
+
+>>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
             default:
 
                 printf("Opcion invalida, por favor seleccione una opcion existente.\n");
@@ -338,9 +402,9 @@ void menuSongs(User*user){
                 break;
 
         }
-    }
-}
 
+    }while(option != 52);
+}
 
 
 

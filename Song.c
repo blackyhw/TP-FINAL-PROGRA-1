@@ -1,6 +1,7 @@
 #include "Song.h"
 
 
+<<<<<<< HEAD
 void menuPlaylist(User*User)
 {
     int option;
@@ -37,3 +38,5 @@ void menuPlaylist(User*User)
     while(option != 51);
 
 }
+=======
+>>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
