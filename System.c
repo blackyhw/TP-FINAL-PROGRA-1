@@ -230,23 +230,14 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
-<<<<<<< HEAD
-                //menuSongs(user);
+
+                menuSongs(user);
                 break;
 
             case 51:
                 menuLibrary();
                 break;
 
-<<<<<<< HEAD
-=======
-            case 52:
-=======
-                menuSongs(user);
->>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
-                break;
-
->>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
             default:
                 printf("Opcion invalida, por favor seleccione una opcion existente.\n");
                 system("pause");
