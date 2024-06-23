@@ -363,7 +363,7 @@ User* editMenuUser(User*user)
             }
             break;
 
-        case 4:
+        case 52:
             system("cls");
             printf("Ingrese una nueva contrasenia:\n");
             printf("Longitud de 8 a 15 caracteres.\n");

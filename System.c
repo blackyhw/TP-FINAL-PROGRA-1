@@ -219,9 +219,8 @@ void menuBepefy(User*user){
     printf("                |       ELIGE UNA OPCION PARA CONTINUAR       |\n");
     printf("                |_____________________________________________|\n");
     printf("                | 1. Usuario                                  |\n");
-    printf("                | 2. Canciones                                |\n");
-    printf("                | 3. Biblioteca                               |\n");
-    printf("                | 4. Salir                                    |\n");
+    printf("                | 2. Biblioteca                               |\n");
+    printf("                | 3. Salir                                    |\n");
     printf("                |_____________________________________________|\n");
 
         fflush(stdin);
@@ -237,14 +236,7 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
-                //menuSongs(user);
-                break;
-
-            case 51:
-                //void menuLibrary();
-                break;
-
-            case 52:
+                menuSongs(user);
                 break;
 
             default:
@@ -255,7 +247,6 @@ void menuBepefy(User*user){
     }while (option != 52);
 
     printf("FIN DE PROGRAMA");
-    Beep(750, 800);
 
   }
 
@@ -302,11 +293,11 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
-void menuSongs(User user){
+void menuSongs(User*user){
 
     int option = 0;
 
-    while(1){
+    do{
 
         printf("\nELIGA UNA OPCION.\n");
 
@@ -336,8 +327,6 @@ void menuSongs(User user){
                 ///stSong searchSong();
                 break;
 
-            case 52:
-                break;
 
             default:
 
@@ -346,7 +335,7 @@ void menuSongs(User user){
                 break;
 
         }
-    }
+    }while(option !=52);
 }
 
 
