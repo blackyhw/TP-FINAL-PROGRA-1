@@ -278,7 +278,6 @@ void subEditMenuUser(User*user)
     updateUser(pos);
 }
 
-
 User* editMenuUser(User*user)
 {
     char newUsername[21];
@@ -363,7 +362,7 @@ User* editMenuUser(User*user)
             }
             break;
 
-        case 4:
+        case 52:
             system("cls");
             printf("Ingrese una nueva contrasenia:\n");
             printf("Longitud de 8 a 15 caracteres.\n");
@@ -384,11 +383,13 @@ User* editMenuUser(User*user)
                 fflush(stdin);
                 option = getch();
             }
+
         default:
             printf("No existe esa opción \n");
             system("cls");
             break;
         }
+
     }while(option != '5' && option != 27);
 
     return user;

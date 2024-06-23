@@ -2,8 +2,7 @@
 #include "Song.h"
 #include "User.h"
 
-void registerUser()
-{
+void registerUser(){
     User user;
     int i = 0;
     char username[21];
@@ -160,8 +159,6 @@ void loginMenuBepefy(){
 
     printf("\nFIN DEL PROGRAMA\n");
 }
-//<<<<<<< HEAD
-//=======
 
 void subMenuLogin(){
     char infoToLogin [20];
@@ -190,13 +187,7 @@ void subMenuLogin(){
         }
 }
 
-<<<<<<< HEAD
-//>>>>>>> 66c3bc83589846febb66c0be3ee72b12e7a556f8
-void menuBepefy(){
-=======
 void menuBepefy(User*user){
->>>>>>> 2a3dbdc87ac1c5eb3086343dde961ce42964fc55
-
 
     int option = NULL;
 
@@ -248,7 +239,7 @@ void menuBepefy(User*user){
                 break;
 
             case 51:
-                //void menuLibrary();
+                menuLibrary();
                 break;
 
             case 52:
@@ -262,11 +253,11 @@ void menuBepefy(User*user){
     }while (option != 52);
 
     printf("FIN DE PROGRAMA");
-    Beep(750, 800);
 
   }
 
 void menuUser(User*user){
+
     int flag = 0;
     int option = 0;
 
@@ -309,6 +300,7 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
+
 void menuSongs(User user){
 
     int option = 0;
@@ -356,9 +348,49 @@ void menuSongs(User user){
     }
 }
 
-void showPlaylist(User user){
+void menuLibrary(){
 
+    int option = NULL;
 
+    do{
+
+        printf("\nELIJA UNA OPCION.\n\n");
+
+        printf("\n1. Ver la Biblioteca completa.\n");
+        printf("\n2. ver Biblioteca por Orden alfabetico.\n");
+        printf("\n3. ver Biblioteca por Genero.\n");
+        printf("\n4. Salir.\n\n");
+
+        fflush(stdin);
+        option = getch();
+        system("cls");
+
+        switch(option){
+
+            case 49:
+
+//                void showLibrary(stSong[]);
+                break;
+
+            case 50:
+
+//                void showLibraryAtoZ(stSong[]);
+                break;
+
+            case 51:
+
+//                void showLibraryGenre(stSong[]);
+                break;
+
+            default:
+
+                printf("Opcion incorrecta.\n");
+                system("cls");
+                break;
+
+        }
+
+    }while(option != 52);
 }
 
 
