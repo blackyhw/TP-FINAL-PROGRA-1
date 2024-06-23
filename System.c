@@ -320,16 +320,13 @@ void menuSongs(User*user){
 
             case 50:
 
-                ///menuLibrary();
+                menuLibrary();
                 break;
 
             case 51:
 
                 ///stSong searchSong();
                 break;
-
-<<<<<<< HEAD
-=======
 
             default:
 
@@ -374,8 +371,7 @@ void menuLibrary(){
 
 //                void showLibraryGenre(stSong[]);
                 break;
-
->>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
+            
             default:
 
                 printf("Opcion invalida, por favor seleccione una opcion existente.\n");
