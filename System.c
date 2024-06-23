@@ -294,17 +294,8 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
-<<<<<<< HEAD
-void menuSongs(User*user){
-=======
-<<<<<<< HEAD
 
-void menuSongs(User user){
-=======
 void menuSongs(User*user){
->>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
->>>>>>> 0bfcbb21f40c191f38e4b5bac4c025eac5fa38e0
-
     int option = 0;
 
     do{
