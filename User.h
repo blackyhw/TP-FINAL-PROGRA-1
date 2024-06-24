@@ -1,5 +1,6 @@
 #ifndef USER_H_INCLUDED
 #define USER_H_INCLUDED
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -11,7 +12,7 @@ typedef struct{
   char email[31];
   char phoneNumber[16];
   char passWord[21];
-  int state;
+  int playListSize;
   Song playList[200];
 
 }User;
@@ -31,5 +32,7 @@ void subEditMenuUser(User*user);
 User* editMenuUser(User*user);
 void showUser(int pos);
 void updateUser(intposUser);
+void updatePlayList(int posUser,User *user,Song song);
+void showPlaylist(int posUser);
 
 #endif // USER_H_INCLUDED

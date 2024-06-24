@@ -19,22 +19,30 @@ int amountSongs(){
     if(archi){
         fseek(archi,0,SEEK_END);
         size = ftell(archi);
+        fclose(archi);
     }
 
     return size;
 }
 
 void showLibrary(){
-    Song aux;
+
     FILE*archi = fopen("Songs.bin","rb");
+    Song aux;
 
     if(archi){
+        printf("=== Biblioteca de Canciones ===\n");
+
         while(fread(&aux,sizeof(Song),1,archi)>0){
             printf("----------------------------------------\n");
-            printf("Nombre de la cancion: %s\n",aux.name);
-            printf("Genero: %s\n",aux.genre);
-            printf("Anio: %d\n",aux.age);
-            printf("Artista %s\n",aux.artist);
+            printf("Nombre de la cancion: %s\n", aux.name);
+            printf("Artista: %s\n", aux.artist);
+            printf("Anio: %d\n", aux.age);
+            printf("Genero: %s\n", aux.genre);
         }
+        fclose(archi);
     }
+    system("pause");
 }
+
+
