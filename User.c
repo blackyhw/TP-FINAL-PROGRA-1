@@ -403,8 +403,7 @@ void updateUser(int posUser)
     if(archi)
     {
         fseek(archi, sizeof(User) * posUser, SEEK_SET);
-
-            printf("%s\n", aux.username);
+        fread(&aux,sizeof(User),1,archi);
 
 
             user = editMenuUser(&aux);
