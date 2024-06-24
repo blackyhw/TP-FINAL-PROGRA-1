@@ -1,7 +1,5 @@
 #ifndef SONG_H_INCLUDED
 #define SONG_H_INCLUDED
-
-
 #include <stdio.h>
 #include <stdlib.h>
 

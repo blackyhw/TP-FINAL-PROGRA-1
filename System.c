@@ -273,14 +273,11 @@ void menuUser(User*user){
 
                 ///flag = delUser(stUser);
                 break;
-
             case 50:
-
                 subEditMenuUser(user);
                 break;
 
             case 51:
-
                 showUser(posUser(user));
                 break;
 
@@ -387,34 +384,33 @@ void subSearch(){
 
     Song*listSongs = (Song *) malloc(amountSongs());
     archToArr(listSongs);
-
     char buffer[50];
 
-    printf("Ingrese la cancion que deea buscar: ");
+    printf("Ingrese la cancion que desea buscar: ");
     char*fullWord = getStr(buffer,listSongs,0);
 
 }
 
 char* getStr(char* nameSong, Song*sList, int i) {
     char aux = getch();
-    gotoxy(i+36, 0);
+    gotoxy(i+37, 0);
 
     if (aux == 13) {
         nameSong[i] = '\0';
         return nameSong;
     } else if (aux == 8 && i > 0) {
-        gotoxy(i+36 - 1,0);
+        gotoxy(i+37 - 1,0);
         printf(" ");
-        gotoxy(i+36 - 1,0);
+        gotoxy(i+37 - 1,0);
         nameSong[i - 1] = '\0';
         printSearch(sList,nameSong);
-        gotoxy(i+36-1, 0);
+        gotoxy(i+37-1, 0);
         return getStr(nameSong, sList, i - 1);
     }
         nameSong[i] = aux;
         nameSong[i + 1] = '\0';
         printSearch(sList, nameSong);
-        gotoxy(i+36+1, 0);
+        gotoxy(i+37+1, 0);
 
         return getStr(nameSong, sList, i + 1);
 
@@ -423,7 +419,7 @@ char* getStr(char* nameSong, Song*sList, int i) {
 void printSearch(Song*sList,char*songName){
     int i = 0;
     system("cls");
-    printf("Ingrese la cancion que deea buscar: ");
+    printf("Ingrese la cancion que desea buscar: ");
     printf("%s",songName);
 
     while(sList[i].name != '\0' && i<100 && strcmpi(songName,"") != 0){
