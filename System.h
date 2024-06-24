@@ -13,8 +13,9 @@ void subMenuLogin();
 void menuBepefy(User*user);
 void menuUser(User*user);
 void menuSongs(User*user);
-void menuLibrary();
-void subSearch();
+void subSearch(User *user);
 char* getStr(char* nameSong, Song*sList, int i);
 void printSearch(Song*sList,char*songName);
+Song getSong(char*nameSong,Song*listSong);
+void addSongToPlaylist(User*user,Song song);
 #endif // SYSTEM_H_INCLUDED

@@ -252,7 +252,8 @@ void showUser(int pos)
     User aux;
     FILE*archi = fopen("Users.bin","rb");
 
-    if(archi){
+    if(archi)
+    {
         fseek(archi,sizeof(User)*pos,SEEK_SET);
 
         fread(&aux,sizeof(User),1,archi);
@@ -264,10 +265,11 @@ void showUser(int pos)
         printf(".................................................................\n");
         printf("Numero de Telefono:%s.\n", aux.phoneNumber);
         printf(".................................................................\n");
+        printf("Cantidad en la playlist:%d.\n",aux.playListSize);
         system("pause");
         system("cls");
 
-    fclose(archi);
+        fclose(archi);
     }
 }
 
@@ -390,7 +392,8 @@ User* editMenuUser(User*user)
             break;
         }
 
-    }while(option != '5' && option != 27);
+    }
+    while(option != '5' && option != 27);
 
     return user;
 
@@ -406,15 +409,64 @@ void updateUser(int posUser)
         fread(&aux,sizeof(User),1,archi);
 
 
-            user = editMenuUser(&aux);
+        user = editMenuUser(&aux);
 
 
-            fseek(archi, -sizeof(User), SEEK_CUR);
+        fseek(archi, -sizeof(User), SEEK_CUR);
 
 
-            fwrite(user, sizeof(User), 1, archi);
+        fwrite(user, sizeof(User), 1, archi);
 
 
         fclose(archi);
+    }
+}
+void updatePlayList(int posUser,User *user,Song song)
+{
+    FILE* archi = fopen("Users.bin", "r+b");
+    User aux;
+    if (archi)
+    {
+        fseek(archi, sizeof(User) * posUser, SEEK_SET);
+        fread(&aux,sizeof(User),1,archi);
+
+        addSongToPlaylist(&aux,song);
+
+        fseek(archi, -sizeof(User), SEEK_CUR);
+        fwrite(&aux, sizeof(User), 1, archi);
+
+        fclose(archi);
+    }
+}
+void showPlaylist(int posUser)
+{
+    FILE* archi = fopen("Users.bin", "rb");
+    if (archi)
+    {
+        fseek(archi, sizeof(User) * posUser, SEEK_SET);
+
+        User user;
+        fread(&user, sizeof(User), 1, archi);
+        fclose(archi);
+
+        system("cls");
+        if (user.playListSize > 0)
+        {
+            for (int i = 0; i < user.playListSize; i++)
+            {
+            printf("----------------------------------------\n");
+            printf("Nombre de la cancion: %s\n",user.playList[i].name);
+            printf("Genero: %s\n",user.playList[i].genre);
+            printf("Anio: %d\n",user.playList[i].age);
+            printf("Artista %s\n",user.playList[i].artist);
+            printf("----------------------------------------\n");
+            }
+        }
+        else
+        {
+            printf("La playlist está vacía.\n");
+        }
+        system("pause");
+        system("cls");
     }
 }

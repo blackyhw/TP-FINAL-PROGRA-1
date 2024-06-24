@@ -2,7 +2,8 @@
 #include "Song.h"
 #include "User.h"
 
-void registerUser(){
+void registerUser()
+{
     User user;
     int i = 0;
     char username[21];
@@ -73,17 +74,20 @@ void registerUser(){
         printf("Maximo 30 caracteres.\n");
         fflush(stdin);
         scanf("%s",&email);
-        if(verifyValidEmail(email) == 0){
+        if(verifyValidEmail(email) == 0)
+        {
 
-                printf("El email ya esta en uso, intente uno diferente\n");
-                printf("Desea cancelar la carga? Presione ESCAPE.\n");
-                printf("Para volver a intentarlo presione cualquier tecla.\n");
-                fflush(stdin);
-                option = getch();
-            }else{
-                strcpy(&user.email, email);
-                mailVerify=1;
-            }
+            printf("El email ya esta en uso, intente uno diferente\n");
+            printf("Desea cancelar la carga? Presione ESCAPE.\n");
+            printf("Para volver a intentarlo presione cualquier tecla.\n");
+            fflush(stdin);
+            option = getch();
+        }
+        else
+        {
+            strcpy(&user.email, email);
+            mailVerify=1;
+        }
 
     }
 
@@ -115,12 +119,14 @@ void registerUser(){
     system("cls");
 }
 
-void loginMenuBepefy(){
+void loginMenuBepefy()
+{
 
     int option = 0;
     int verify = 1;
 
-    do{
+    do
+    {
 
         printf("\nSELECCIONE UNA OPCION.\n");
 
@@ -132,62 +138,69 @@ void loginMenuBepefy(){
         option = getch();
         system("cls");
 
-        switch(option){
+        switch(option)
+        {
 
-            case 49:
-                registerUser();
-                break;
+        case 49:
+            registerUser();
+            break;
 
-            case 50:
-                subMenuLogin();
-                break;
+        case 50:
+            subMenuLogin();
+            break;
 
-            case 51:
+        case 51:
 
-                break;
+            break;
 
-            default:
+        default:
 
-                printf("Opcion incorrecta.\n");
-                system("pause");
-                system("cls");
-                break;
+            printf("Opcion incorrecta.\n");
+            system("pause");
+            system("cls");
+            break;
 
         }
 
-    }while(option != 51);
+    }
+    while(option != 51);
 
     printf("\nFIN DEL PROGRAMA\n");
 }
 
-void subMenuLogin(){
+void subMenuLogin()
+{
     char infoToLogin [20];
     char password [15];
     User*user = NULL;
 
-        printf("\Login\n");
+    printf("\Login\n");
 
-        printf("Ingrese su nombre de usuario,email o numero de telefono: ");
-        fflush(stdin);
-        gets(infoToLogin);
+    printf("Ingrese su nombre de usuario,email o numero de telefono: ");
+    fflush(stdin);
+    gets(infoToLogin);
 
-        printf("Ingrese su contraseña: ");
-        fflush(stdin);
-        gets(password);
+    printf("Ingrese su contrasenia: ");
+    fflush(stdin);
+    gets(password);
 
-        user = accVerify(user,infoToLogin,password);
-        if(user){
-           menuBepefy(user);
-        }else{
-            system("cls");
-            printf("Usuario o contraseña Incorrecto\n");
-            printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
-            system("pause");
-            system("cls");
-        }
+    user = accVerify(user,infoToLogin,password);
+    if(user)
+    {
+        menuBepefy(user);
+    }
+    else
+    {
+        system("cls");
+        printf("Usuario o contrasenia Incorrecto\n");
+        printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
+        system("pause");
+        system("cls");
+    }
 }
 
-void menuBepefy(User*user){
+void menuBepefy(User*user)
+{
 
     int option = NULL;
 
@@ -209,17 +222,18 @@ void menuBepefy(User*user){
 
 
 
-   do {
+    do
+    {
 
 
-    printf ("\n\n\n\n\n\n");
-    printf("                 _____________________________________________\n");
-    printf("                |       ELIGE UNA OPCION PARA CONTINUAR       |\n");
-    printf("                |_____________________________________________|\n");
-    printf("                | 1. Usuario                                  |\n");
-    printf("                | 2. Biblioteca                               |\n");
-    printf("                | 3. Salir                                    |\n");
-    printf("                |_____________________________________________|\n");
+        printf ("\n\n\n\n\n\n");
+        printf("                 _____________________________________________\n");
+        printf("                |       ELIGE UNA OPCION PARA CONTINUAR       |\n");
+        printf("                |_____________________________________________|\n");
+        printf("                | 1. Usuario                                  |\n");
+        printf("                | 2. Biblioteca                               |\n");
+        printf("                | 3. Salir                                    |\n");
+        printf("                |_____________________________________________|\n");
 
         fflush(stdin);
         option = getch();
@@ -227,34 +241,37 @@ void menuBepefy(User*user){
 
 
 
-         switch (option)
-         {
-             case 49:
-                menuUser(user);
-                break;
+        switch (option)
+        {
+        case 49:
+            menuUser(user);
+            break;
 
-            case 50:
+        case 50:
 
-                menuSongs(user);
-                break;
+            menuSongs(user);
+            break;
 
-            default:
-                printf("Opcion incorrecta.\n");
-                system("cls");
-                break;
-         }
-    }while (option != 51);
+        default:
+            printf("Opcion incorrecta.\n");
+            system("cls");
+            break;
+        }
+    }
+    while (option != 51);
 
     printf("FIN DE PROGRAMA");
 
-  }
+}
 
-void menuUser(User*user){
+void menuUser(User*user)
+{
 
     int flag = 0;
     int option = 0;
 
-    do{
+    do
+    {
 
         printf("\nELIGA UNA OPCION.\n");
 
@@ -267,38 +284,38 @@ void menuUser(User*user){
         option = getch();
         system("cls");
 
-        switch(option){
+        switch(option)
+        {
 
-            case 49:
+        case 49:
 
-                ///flag = delUser(stUser);
-                break;
+            ///flag = delUser(stUser);
+            break;
+        case 50:
+            subEditMenuUser(user);
+            break;
 
-            case 50:
+        case 51:
+            showUser(posUser(user));
+            break;
 
-                subEditMenuUser(user);
-                break;
+        default:
 
-            case 51:
-
-                showUser(posUser(user));
-                break;
-
-            default:
-
-                printf("Opcion incorrecta.\n");
-                system("cls");
-                break;
+            printf("Opcion incorrecta.\n");
+            system("cls");
+            break;
 
         }
     }while(option != 52);
 }
 
-void menuSongs(User*user){
+void menuSongs(User*user)
+{
 
     int option = 0;
 
-    do{
+    do
+    {
 
         printf("\nELIGA UNA OPCION.\n");
 
@@ -311,39 +328,41 @@ void menuSongs(User*user){
         option = getch();
         system("cls");
 
-        switch(option){
+        switch(option)
+        {
 
-            case 49:
+        case 49:
 
-                ///menuPlaylist();
-                break;
+            showPlaylist(posUser(user->id));
+            break;
 
-            case 50:
+        case 50:
+            menuLibrary();
+            break;
 
-                menuLibrary();
-                break;
+        case 51:
 
-            case 51:
-
-                subSearch();
-                break;
+            subSearch(user);
+            break;
 
 
-            default:
+        default:
 
-                printf("Opcion incorrecta.\n");
-                system("cls");
-                break;
+            printf("Opcion incorrecta.\n");
+            system("cls");
+            break;
 
         }
-    }while(option !=52);
+    }
+    while(option !=52);
 }
 
 void menuLibrary(){
 
     int option = NULL;
 
-    do{
+    do
+    {
 
         printf("\nELIJA UNA OPCION.\n\n");
 
@@ -358,75 +377,100 @@ void menuLibrary(){
 
         switch(option){
 
-            case 49:
+        case 49:
+           showLibrary();
+            break;
 
-//                void showLibrary(stSong[]);
-                break;
-
-            case 50:
+        case 50:
 
 //                void showLibraryAtoZ(stSong[]);
-                break;
+            break;
 
-            case 51:
+        case 51:
 
 //                void showLibraryGenre(stSong[]);
-                break;
+            break;
 
-            default:
+        default:
 
-                printf("Opcion incorrecta.\n");
-                system("cls");
-                break;
+            printf("Opcion incorrecta.\n");
+            system("pause");
+            system("cls");
+            break;
 
         }
 
     }while(option != 52);
 }
-void subSearch(){
 
-    Song*listSongs = (Song *) malloc(amountSongs());
+void subSearch(User *user)
+{
+    int pos = posUser(user->id);
+    char response = NULL;
+    Song*listSongs = (Song *) malloc(amountSongs()*sizeof(Song));
     archToArr(listSongs);
-
     char buffer[50];
 
-    printf("Ingrese la cancion que deea buscar: ");
+    printf("Ingrese la cancion que desea buscar: ");
     char*fullWord = getStr(buffer,listSongs,0);
+    Song song = getSong(fullWord, listSongs);
 
+    system("cls");
+    printf("Desea agregar %s a su playlist? (s/n)",song.name);
+        response = getch();
+        if (response == 's' || response == 'S')
+        {
+        if (song.name[0] != '\0')
+        {
+            updatePlayList(pos,user,song);
+            printf("\nLa cancion se agrego correctamente.\n");
+            system("pause");
+            system("cls");
+
+        }
+    }
 }
 
-char* getStr(char* nameSong, Song*sList, int i) {
+char* getStr(char* nameSong, Song*sList, int i)
+{
     char aux = getch();
-    gotoxy(i+36, 0);
+    gotoxy(i+37, 0);
 
-    if (aux == 13) {
+    if (aux == 13)
+    {
         nameSong[i] = '\0';
         return nameSong;
-    } else if (aux == 8 && i >= 0) {
-        gotoxy(i+36 - 1,0);
+    }
+    else if (aux == 8 && i > 0)
+    {
+        gotoxy(i+37 - 1,0);
         printf(" ");
-        gotoxy(i+36 - 1,0);
+        gotoxy(i+37 - 1,0);
         nameSong[i - 1] = '\0';
         printSearch(sList,nameSong);
-        gotoxy(i+36-1, 0);
+        gotoxy(i+37-1, 0);
         return getStr(nameSong, sList, i - 1);
     }
-        nameSong[i] = aux;
-        nameSong[i + 1] = '\0';
-        printSearch(sList, nameSong);
-        gotoxy(i+36+1, 0);
+    nameSong[i] = aux;
+    nameSong[i + 1] = '\0';
+    printSearch(sList, nameSong);
+    gotoxy(i+37+1, 0);
 
-        return getStr(nameSong, sList, i + 1);
+    return getStr(nameSong, sList, i + 1);
 
 }
 
-void printSearch(Song*sList,char*songName){
+void printSearch(Song*sList,char*songName)
+{
     int i = 0;
     system("cls");
-    printf("Ingrese la cancion que deea buscar: ");
+    printf("Ingrese la cancion que desea buscar: ");
     printf("%s",songName);
-    while(sList[i].name != '\0' && i<100 && strcmpi(songName,"") != 0){
-        if(strstr(sList[i].name,songName)!= NULL){
+
+    while(sList[i].name != '\0' && i<100 && strcmpi(songName,"") != 0)
+    {
+        if(strstr(sList[i].name,songName)!= NULL)
+        {
             printf(" ");
             printf("\n%s\t",sList[i].name);
             printf("%s\t",sList[i].artist);
@@ -437,5 +481,29 @@ void printSearch(Song*sList,char*songName){
     }
 
 }
+Song getSong(char*nameSong,Song*listSong)
+{
+    Song aux;
+    int i = 0;
+    int found = 0;
 
+    while(!found)
+    {
+        if(strstr(listSong[i].name, nameSong) != NULL)
+        {
+            aux = listSong[i];
+            found= 1;
+        }
+        i++;
+    }
 
+    return aux;
+}
+
+void addSongToPlaylist(User*user,Song song)
+{
+    if(user->playListSize<200)
+    {
+        user->playList[user->playListSize++] = song;
+    }
+}
