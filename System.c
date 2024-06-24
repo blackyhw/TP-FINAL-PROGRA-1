@@ -402,7 +402,7 @@ char* getStr(char* nameSong, Song*sList, int i) {
     if (aux == 13) {
         nameSong[i] = '\0';
         return nameSong;
-    } else if (aux == 8 && i >= 0) {
+    } else if (aux == 8 && i > 0) {
         gotoxy(i+36 - 1,0);
         printf(" ");
         gotoxy(i+36 - 1,0);
@@ -425,6 +425,7 @@ void printSearch(Song*sList,char*songName){
     system("cls");
     printf("Ingrese la cancion que deea buscar: ");
     printf("%s",songName);
+
     while(sList[i].name != '\0' && i<100 && strcmpi(songName,"") != 0){
         if(strstr(sList[i].name,songName)!= NULL){
             printf(" ");
