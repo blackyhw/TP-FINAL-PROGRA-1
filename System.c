@@ -234,18 +234,8 @@ void menuBepefy(User*user){
                 break;
 
             case 50:
-<<<<<<< HEAD
-                //menuSongs(user);
-                break;
 
-            case 51:
-                menuLibrary();
-                break;
-
-            case 52:
-=======
                 menuSongs(user);
->>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
                 break;
 
             default:
@@ -253,7 +243,7 @@ void menuBepefy(User*user){
                 system("cls");
                 break;
          }
-    }while (option != 52);
+    }while (option != 51);
 
     printf("FIN DE PROGRAMA");
 
@@ -303,12 +293,8 @@ void menuUser(User*user){
         }
     }while(option != 52);
 }
-<<<<<<< HEAD
 
-void menuSongs(User user){
-=======
 void menuSongs(User*user){
->>>>>>> 135fb54a4c06537985fcf26d0c12ce7056f0814c
 
     int option = 0;
 
@@ -334,12 +320,12 @@ void menuSongs(User*user){
 
             case 50:
 
-                ///menuLibrary();
+                menuLibrary();
                 break;
 
             case 51:
 
-                ///stSong searchSong();
+                subSearch();
                 break;
 
 
@@ -397,9 +383,59 @@ void menuLibrary(){
 
     }while(option != 52);
 }
+void subSearch(){
 
+    Song*listSongs = (Song *) malloc(amountSongs());
+    archToArr(listSongs);
 
+    char buffer[50];
 
+    printf("Ingrese la cancion que deea buscar: ");
+    char*fullWord = getStr(buffer,listSongs,0);
 
+}
+
+char* getStr(char* nameSong, Song*sList, int i) {
+    char aux = getch();
+    gotoxy(i+36, 0);
+
+    if (aux == 13) {
+        nameSong[i] = '\0';
+        return nameSong;
+    } else if (aux == 8 && i >= 0) {
+        gotoxy(i+36 - 1,0);
+        printf(" ");
+        gotoxy(i+36 - 1,0);
+        nameSong[i - 1] = '\0';
+        printSearch(sList,nameSong);
+        gotoxy(i+36-1, 0);
+        return getStr(nameSong, sList, i - 1);
+    }
+        nameSong[i] = aux;
+        nameSong[i + 1] = '\0';
+        printSearch(sList, nameSong);
+        gotoxy(i+36+1, 0);
+
+        return getStr(nameSong, sList, i + 1);
+
+}
+
+void printSearch(Song*sList,char*songName){
+    int i = 0;
+    system("cls");
+    printf("Ingrese la cancion que deea buscar: ");
+    printf("%s",songName);
+    while(sList[i].name != '\0' && i<100 && strcmpi(songName,"") != 0){
+        if(strstr(sList[i].name,songName)!= NULL){
+            printf(" ");
+            printf("\n%s\t",sList[i].name);
+            printf("%s\t",sList[i].artist);
+            printf("%d\t",sList[i].age);
+            printf("%s\t",sList[i].genre);
+        }
+        i++;
+    }
+
+}
 
 

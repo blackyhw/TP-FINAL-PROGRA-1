@@ -14,6 +14,7 @@ typedef struct{
  char artist[50];
 
 }Song;
-
-
+void archToArr(Song*librarySongs);
+void showLibrary();
+int amountSongs();
 #endif // SONG_H_INCLUDED
