@@ -9,3 +9,26 @@ void gotoxy(int posX,int posY){
     dwPos.Y = posY;
     SetConsoleCursorPosition(hcon,dwPos);
 }
+
+void setConsoleBufferSize(int width, int height) {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hOut == INVALID_HANDLE_VALUE) {
+        fprintf(stderr, "Error al obtener el handle de la consola.\n");
+        return;
+    }
+
+    CONSOLE_SCREEN_BUFFER_INFO bufferInfo;
+    if (!GetConsoleScreenBufferInfo(hOut, &bufferInfo)) {
+        fprintf(stderr, "Error al obtener la información del buffer de la consola.\n");
+        return;
+    }
+
+    COORD newSize;
+    newSize.X = bufferInfo.dwSize.X; // Mantenemos el ancho actual
+    newSize.Y = height;
+
+    if (!SetConsoleScreenBufferSize(hOut, newSize)) {
+        fprintf(stderr, "Error al establecer el tamaño del buffer de la consola.\n");
+        return;
+    }
+}

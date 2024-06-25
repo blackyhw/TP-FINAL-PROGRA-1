@@ -6,4 +6,5 @@
 #include <windows.h>
 
 void gotoxy(int posX,int posY);
+void setConsoleBufferSize(int width, int height);
 #endif // BEHAVIOUR_H_INCLUDED

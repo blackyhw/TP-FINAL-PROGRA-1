@@ -2,26 +2,27 @@
 int posUser(int idUser)
 {
     int pos = -1;
-    int i = 0;
-    User aux;
+    int flag = 0;
+    FILE* archi = fopen("Users.bin", "rb");
 
-    FILE*archi = fopen("Users.bin","rb");
-
-    if(archi)
-    {
-        while(pos == -1 && fread(&aux,sizeof(User),1,archi) > 0)
-        {
-            if(aux.id == idUser)
-            {
+    if (archi) {
+        User aux;
+        int i = 0;
+        while (flag == 0 && fread(&aux, sizeof(User), 1, archi)>0) {
+            if (aux.id == idUser) {
                 pos = i;
+                flag = 1;
             }
             i++;
         }
         fclose(archi);
+    } else {
+        perror("Error opening file"); // Manejo de error si no se pudo abrir el archivo
     }
 
     return pos;
 }
+
 User* searchUsername(char*username)
 {
 
@@ -65,11 +66,20 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
 
         }
     }
-
+    if(user->state == 0){
+        printf("Este usuario esta dado de baja.\n");
+        printf("Por favor comuniquese con un Administrador para recuperar su cuenta\n");
+        system("pause");
+        system("cls");
+        return NULL;
+    }
     if(strcmp(user->passWord,passWord) == 0)
     {
         return user;
     }
+    printf("Contraseña Incorrecta.");
+    system("pause");
+    return NULL;
 }
 
 User*searchEmail(char*email)
@@ -121,31 +131,19 @@ User*searchPhoneNumber(char*phoneNumber)
 
 int searchIdFree()
 {
-    User aux;
-    int id = 0;
-    long pos;
-    long sizeUser;
-    long sizeArch;
-    long users;
-    FILE*archi = fopen("Users.bin","rb");
+   long pos = -1;
+   long users = 0;
 
-    if(archi)
-    {
-        fseek(archi, 0, SEEK_END);
-        sizeUser =  sizeof(User);
-        sizeArch = ftell(archi);
-        users = sizeArch/sizeUser;
-        pos = (users - 1) * sizeUser;
-
-        fseek(archi,pos,SEEK_SET);
-
-        fread(&aux,sizeof(User),1,archi);
+    FILE *archi = fopen("Users.bin", "rb");
+    if (archi) {
+        users = amountUser(archi);
         fclose(archi);
-
-        return aux.id+1;
+    } else {
+        archi = fopen("Users.bin", "wb");
     }
-    printf("El archivo no se abrio correctamente.");
-    return -1;
+    pos = users;
+
+    return pos;
 }
 
 int verifyValidEmail(char*email)
@@ -247,14 +245,14 @@ void saveUser(User user)
     fclose(archive);
 }
 
-void showUser(int pos)
+void showUser(User user)
 {
     User aux;
     FILE*archi = fopen("Users.bin","rb");
 
     if(archi)
     {
-        fseek(archi,sizeof(User)*pos,SEEK_SET);
+        fseek(archi,sizeof(User)*user.id,SEEK_SET);
 
         fread(&aux,sizeof(User),1,archi);
         system("cls");
@@ -266,18 +264,18 @@ void showUser(int pos)
         printf("Numero de Telefono:%s.\n", aux.phoneNumber);
         printf(".................................................................\n");
         printf("Cantidad en la playlist:%d.\n",aux.playListSize);
+        printf(".................................................................\n");
+        printf("Estado del Usuario:%d\n",aux.state);
         system("pause");
         system("cls");
-
         fclose(archi);
     }
 }
 
-void subEditMenuUser(User*user)
+void subEditMenuUser(User user)
 {
 
-    int pos = posUser(user->id);
-    updateUser(pos);
+    updateUser( user);
 }
 
 User* editMenuUser(User*user)
@@ -385,49 +383,54 @@ User* editMenuUser(User*user)
                 fflush(stdin);
                 option = getch();
             }
+        case 53:
+
+            break;
 
         default:
             printf("No existe esa opción \n");
+            system("pause");
             system("cls");
             break;
         }
 
     }
-    while(option != '5' && option != 27);
-
+    while(option != 53 && option != 27);
+    system("cls");
     return user;
 
 }
-void updateUser(int posUser)
+void updateUser(User user)
 {
     User aux;
-    User*user;
+    User*user1;
     FILE*archi = fopen("Users.bin","r+b");
     if(archi)
     {
-        fseek(archi, sizeof(User) * posUser, SEEK_SET);
+        fseek(archi, sizeof(User) * user.id, SEEK_SET);
         fread(&aux,sizeof(User),1,archi);
 
 
-        user = editMenuUser(&aux);
+        user1 = editMenuUser(&aux);
 
 
         fseek(archi, -sizeof(User), SEEK_CUR);
 
 
-        fwrite(user, sizeof(User), 1, archi);
+        fwrite(user1, sizeof(User), 1, archi);
 
 
         fclose(archi);
     }
 }
-void updatePlayList(int posUser,User *user,Song song)
+void updatePlayList(User user,Song song)
 {
     FILE* archi = fopen("Users.bin", "r+b");
+    printf("%d",user.id);
     User aux;
     if (archi)
     {
-        fseek(archi, sizeof(User) * posUser, SEEK_SET);
+        fseek(archi, sizeof(User) * user.id, SEEK_SET);
         fread(&aux,sizeof(User),1,archi);
 
         addSongToPlaylist(&aux,song);
@@ -438,35 +441,111 @@ void updatePlayList(int posUser,User *user,Song song)
         fclose(archi);
     }
 }
-void showPlaylist(int posUser)
+int showPlaylist(User user)
 {
+    int flag = 1;
     FILE* archi = fopen("Users.bin", "rb");
     if (archi)
     {
-        fseek(archi, sizeof(User) * posUser, SEEK_SET);
+        fseek(archi,sizeof(User)*user.id,SEEK_SET);
 
-        User user;
-        fread(&user, sizeof(User), 1, archi);
+        User aux;
+        fread(&aux, sizeof(User), 1, archi);
         fclose(archi);
 
-        system("cls");
-        if (user.playListSize > 0)
+        if (aux.playListSize > 0)
         {
-            for (int i = 0; i < user.playListSize; i++)
+            for (int i = 0; i <= aux.playListSize; i++)
             {
-            printf("----------------------------------------\n");
-            printf("Nombre de la cancion: %s\n",user.playList[i].name);
-            printf("Genero: %s\n",user.playList[i].genre);
-            printf("Anio: %d\n",user.playList[i].age);
-            printf("Artista %s\n",user.playList[i].artist);
-            printf("----------------------------------------\n");
+                printf("----------------------------------------\n");
+                printf("Nombre de la cancion: %s\n",aux.playList[i].name);
+                printf("Genero: %s\n",aux.playList[i].genre);
+                printf("Anio: %d\n",aux.playList[i].age);
+                printf("Artista %s\n",aux.playList[i].artist);
             }
         }
         else
         {
+            printf("----------------------------------------\n");
             printf("La playlist está vacía.\n");
+            system("pause");
+            system("cls");
         }
-        system("pause");
-        system("cls");
+
     }
+
+}
+void removeToPlaylist(User user){
+    char nameSong[30];
+    printf("Ingrese el nombre de la cancion que desea remover:");
+    gets(nameSong);
+
+    removeSongArch(user,nameSong);
+
+
+}
+
+void removeSongArch(User user,char*nameSong){
+    User aux;
+    FILE*archi = fopen("Users.bin","r+b");
+    int found = 0;
+
+    if(archi){
+            fseek(archi,sizeof(User)*user.id,SEEK_SET);
+            fread(&aux,sizeof(User),1,archi);
+
+            for(int i = 0;i<aux.playListSize;i++){
+                if(strstr(aux.playList[i].name, nameSong) != NULL){
+                    found = 1;
+
+                    for(int j = i;j<aux.playListSize -1;j++){
+                        aux.playList[j] = aux.playList[j+1];
+                    }
+                    aux.playListSize--;
+                    i--;
+                }
+            }
+            if(found == 1){
+                fseek(archi, -sizeof(User), SEEK_CUR);
+                fwrite(&aux,sizeof(User),1,archi);
+                printf("Cancion '%s' eliminada de la playlist.\n",nameSong);
+                system("pause");
+
+            }else{
+                printf("La cancion ingresada no se encontro en la playlist\n");
+                system("pause");
+            }
+    }
+    system("cls");
+}
+
+int delUser(User*user){
+    int flag = 0;
+    User aux;
+
+    FILE*archi = fopen("Users.bin","r+b");
+
+    if(archi){
+
+        fseek(archi,sizeof(User)*user->id ,SEEK_SET);
+        fwrite(&aux,sizeof(User),1,archi);
+        aux.state = 0;
+
+        fseek(archi, sizeof(User) * user->id, SEEK_SET);
+        fwrite(&aux, sizeof(User), 1, archi);
+
+        flag = 1;
+        fclose(archi);
+    }
+    system("cls");
+    printf("Usuario eliminado con exito");
+    return flag;
+}
+
+int amountUser(FILE*archi){
+
+    fseek(archi, 0, SEEK_END);
+    int sizeUser = sizeof(User);
+    long sizeArch = ftell(archi);
+    return sizeArch / sizeUser;
 }
