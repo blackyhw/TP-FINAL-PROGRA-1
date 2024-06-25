@@ -13,10 +13,11 @@ typedef struct{
   char phoneNumber[16];
   char passWord[21];
   int playListSize;
+  int state;
   Song playList[200];
 
 }User;
-int posUser();
+int posUser(int idUser);
 User*searchUsername(char*username);
 User*searchEmail(char*email);
 User*searchPhoneNumber(char*phoneNumber);
@@ -28,11 +29,14 @@ int verifyMail(char mail[]);
 int verifyPhone(char phone[]);
 void saveUser(User user);
 void optionMenuUser();
-void subEditMenuUser(User*user);
+void subEditMenuUser(User user);
 User* editMenuUser(User*user);
-void showUser(int pos);
-void updateUser(intposUser);
-void updatePlayList(int posUser,User *user,Song song);
-void showPlaylist(int posUser);
-
+void showUser(User user);
+void updateUser(User user);
+void updatePlayList(User user,Song song);
+int showPlaylist(User user);
+void removeToPlaylist(User user);
+void removeSongArch(User user,char*nameSong);
+int delUser(User*user);
+int amountUser();
 #endif // USER_H_INCLUDED

@@ -114,6 +114,8 @@ void registerUser()
     }
     if(phoneVerify == 1)
     {
+        user.state = 1;
+        printf("%d",user.state);
         saveUser(user);
     }
     system("cls");
@@ -172,7 +174,8 @@ void subMenuLogin()
 {
     char infoToLogin [20];
     char password [15];
-    User*user = NULL;
+    User*userP = NULL;
+    User user;
 
     printf("\Login\n");
 
@@ -184,28 +187,23 @@ void subMenuLogin()
     fflush(stdin);
     gets(password);
 
-    user = accVerify(user,infoToLogin,password);
-    if(user)
+    userP = accVerify(userP,infoToLogin,password);
+    if(userP)
     {
+        user = *userP;
+        system("cls");
         menuBepefy(user);
     }
-    else
-    {
-        system("cls");
-        printf("Usuario o contrasenia Incorrecto\n");
-        printf("Por favor intente nuevamente con un usuario o contraseña valido\n");
-        system("pause");
-        system("cls");
-    }
+    system("cls");
 }
 
-void menuBepefy(User*user)
+void menuBepefy(User user)
 {
-
+    int flag = 0;
     int option = NULL;
 
-    system("mode con: cols=81 lines=23");
-    system("color F0");
+    //system("mode con: cols=81 lines=23");
+    //system("color F0");
 
 
 //    gotoxy(2,6);
@@ -244,27 +242,26 @@ void menuBepefy(User*user)
         switch (option)
         {
         case 49:
-            menuUser(user);
+            flag = menuUser(user);
             break;
 
         case 50:
 
             menuSongs(user);
             break;
+        case 51:
 
+            break;
         default:
             printf("Opcion incorrecta.\n");
             system("cls");
             break;
         }
     }
-    while (option != 51);
-
-    printf("FIN DE PROGRAMA");
-
+    while (option != 51 && flag == 0);
 }
 
-void menuUser(User*user)
+int menuUser(User user)
 {
 
     int flag = 0;
@@ -284,19 +281,21 @@ void menuUser(User*user)
         option = getch();
         system("cls");
 
-        switch(option)
-        {
+        switch(option){
 
         case 49:
-
-            ///flag = delUser(stUser);
+            flag = delUser(&user);
             break;
         case 50:
             subEditMenuUser(user);
             break;
 
         case 51:
-            showUser(posUser(user));
+
+            showUser(user);
+            break;
+
+        case 52:
             break;
 
         default:
@@ -304,14 +303,14 @@ void menuUser(User*user)
             printf("Opcion incorrecta.\n");
             system("cls");
             break;
+    }
 
-        }
-    }while(option != 52);
+    }while(option != 52 && flag == 0);
+    return flag;
 }
 
-void menuSongs(User*user)
+void menuSongs(User user)
 {
-
     int option = 0;
 
     do
@@ -333,18 +332,23 @@ void menuSongs(User*user)
 
         case 49:
 
-            showPlaylist(posUser(user->id));
+            subMenuPlaylist(user);
             break;
 
         case 50:
-            menuLibrary();
+            printf("%d",user.id);
+            system("pause");
+            menuLibrary(user);
             break;
 
         case 51:
-
+            printf("%d",user.id);
+            system("pause");
             subSearch(user);
             break;
+        case 52:
 
+            break;
 
         default:
 
@@ -357,7 +361,8 @@ void menuSongs(User*user)
     while(option !=52);
 }
 
-void menuLibrary(){
+void menuLibrary(User user)
+{
 
     int option = NULL;
 
@@ -367,18 +372,19 @@ void menuLibrary(){
         printf("\nELIJA UNA OPCION.\n\n");
 
         printf("\n1. Ver la Biblioteca completa.\n");
-        printf("\n2. ver Biblioteca por Orden alfabetico.\n");
-        printf("\n3. ver Biblioteca por Genero.\n");
+        printf("\n2. Ver Biblioteca por Orden alfabetico.\n");
+        printf("\n3. Ver Biblioteca por Genero.\n");
         printf("\n4. Salir.\n\n");
 
         fflush(stdin);
         option = getch();
         system("cls");
 
-        switch(option){
+        switch(option)
+        {
 
         case 49:
-           showLibrary();
+            showLibrary();
             break;
 
         case 50:
@@ -390,9 +396,10 @@ void menuLibrary(){
 
 //                void showLibraryGenre(stSong[]);
             break;
+        case 52:
 
+            break;
         default:
-
             printf("Opcion incorrecta.\n");
             system("pause");
             system("cls");
@@ -403,9 +410,8 @@ void menuLibrary(){
     }while(option != 52);
 }
 
-void subSearch(User *user)
+void subSearch(User user)
 {
-    int pos = posUser(user->id);
     char response = NULL;
     Song*listSongs = (Song *) malloc(amountSongs()*sizeof(Song));
     archToArr(listSongs);
@@ -417,18 +423,18 @@ void subSearch(User *user)
 
     system("cls");
     printf("Desea agregar %s a su playlist? (s/n)",song.name);
-        response = getch();
-        if (response == 's' || response == 'S')
-        {
+    response = getch();
+    if (response == 's' || response == 'S')
+    {
         if (song.name[0] != '\0')
         {
-            updatePlayList(pos,user,song);
+            updatePlayList(user,song);
             printf("\nLa cancion se agrego correctamente.\n");
             system("pause");
-            system("cls");
 
         }
     }
+    system("cls");
 }
 
 char* getStr(char* nameSong, Song*sList, int i)
@@ -500,10 +506,43 @@ Song getSong(char*nameSong,Song*listSong)
     return aux;
 }
 
-void addSongToPlaylist(User*user,Song song)
+void addSongToPlaylist(User user,Song song)
 {
-    if(user->playListSize<200)
+    if(user.playListSize<200)
     {
-        user->playList[user->playListSize++] = song;
+        user.playList[user.playListSize++] = song;
     }
 }
+void subMenuPlaylist(User user)
+{
+    system("cls");
+    int option;
+    showPlaylist(user);
+    system("cls");
+
+    do{
+        printf("\nDesea quitar elementos de la playlist?\n");
+        printf("1.Quitar de playlist\n");
+        printf("2.Volver al menu anterior\n");
+
+        fflush(stdin);
+        option = getch();
+
+        switch(option){
+
+        case 49:
+            removeToPlaylist(user);
+            break;
+        case 50:
+
+            break;
+        default:
+        printf("No existe esa opcion\n");
+        system("pause");
+        system("cls");
+
+        }
+    }while(option != 50);
+    system("cls");
+}
+

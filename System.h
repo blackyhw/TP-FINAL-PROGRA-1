@@ -10,12 +10,13 @@
 void registerUser();
 void loginMenuBepefy();
 void subMenuLogin();
-void menuBepefy(User*user);
-void menuUser(User*user);
-void menuSongs(User*user);
-void subSearch(User *user);
+void menuBepefy(User user);
+int menuUser(User user);
+void menuSongs(User user);
+void subSearch(User user);
 char* getStr(char* nameSong, Song*sList, int i);
 void printSearch(Song*sList,char*songName);
 Song getSong(char*nameSong,Song*listSong);
-void addSongToPlaylist(User*user,Song song);
+void addSongToPlaylist(User user,Song song);
+void subMenuPlaylist(User user);
 #endif // SYSTEM_H_INCLUDED
