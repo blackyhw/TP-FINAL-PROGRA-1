@@ -93,6 +93,7 @@
 1717786125 source:c:\users\beto xd\documents\programacion\tp-final\user.c
 	"User.h"
 
+<<<<<<< Updated upstream
 1719445026 source:c:\users\gamer\documents\final\tpfinal\song.c
 	"Song.h"
 
@@ -101,24 +102,46 @@
 	<stdlib.h>
 
 1719445026 source:c:\users\gamer\documents\final\tpfinal\system.c
+=======
+1719436670 source:c:\users\gamer\documents\final\tpfinal\song.c
+	"Song.h"
+
+1719442736 c:\users\gamer\documents\final\tpfinal\song.h
+	<stdio.h>
+	<stdlib.h>
+
+1719443640 source:c:\users\gamer\documents\final\tpfinal\system.c
+>>>>>>> Stashed changes
 	"System.h"
 	"Song.h"
 	"User.h"
 
+<<<<<<< Updated upstream
 1719445068 c:\users\gamer\documents\final\tpfinal\system.h
+=======
+1719442728 c:\users\gamer\documents\final\tpfinal\system.h
+>>>>>>> Stashed changes
 	<stdio.h>
 	<stdlib.h>
 	"User.h"
 	"Song.h"
 	"Behaviour.h"
 
+<<<<<<< Updated upstream
 1719445066 c:\users\gamer\documents\final\tpfinal\user.h
+=======
+1719442724 c:\users\gamer\documents\final\tpfinal\user.h
+>>>>>>> Stashed changes
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>
 	"Song.h"
 
+<<<<<<< Updated upstream
 1719445026 source:c:\users\gamer\documents\final\tpfinal\main.c
+=======
+1719392375 source:c:\users\gamer\documents\final\tpfinal\main.c
+>>>>>>> Stashed changes
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -127,7 +150,11 @@
 	<ctype.h>
 	"User.h"
 
+<<<<<<< Updated upstream
 1719445026 source:c:\users\gamer\documents\final\tpfinal\user.c
+=======
+1719443800 source:c:\users\gamer\documents\final\tpfinal\user.c
+>>>>>>> Stashed changes
 	"User.h"
 
 1717378645 source:c:\users\matias\documents\tp-final\song.c

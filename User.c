@@ -235,11 +235,11 @@ int verifyPhone(char phone[])
 void saveUser(User user)
 {
 
-    FILE*archive = fopen("Users.bin", "ab");
-
+    FILE*archi = fopen("Users.bin", "ab");
+    printf("%s",user.username);
     if(archive)
     {
-        fwrite(&user, sizeof(User),1, archive);
+        fwrite(&user, sizeof(User),1, archi);
     }
 
     fclose(archive);
@@ -502,9 +502,9 @@ void removeSongArch(User user, char *nameSong) {
         if (found == 1) {
             fseek(archi, -sizeof(User), SEEK_CUR);
             fwrite(&aux, sizeof(User), 1, archi);
-            printf("Canción '%s' eliminada de la playlist.\n", nameSong);
+            printf("\nCancion '%s' eliminada de la playlist.\n", nameSong);
         } else {
-            printf("La canción ingresada no se encontró en la playlist.\n");
+            printf("La cancion ingresada no se encontro en la playlist.\n");
         }
         fclose(archi);
     }

@@ -4,104 +4,151 @@
 
 void registerUser()
 {
+    system("cls");
     User user;
-    int i = 0;
     char username[21];
     char email[31];
     char phoneNumber[16];
     char password[21];
-    char option=NULL;
-    int nameVerify=0;
-    int passVerify=0;
-    int mailVerify=0;
-    int phoneVerify=0;
+    char option = '\0';
+    int nameVerify = 0;
+    int passVerify = 0;
+    int mailVerify = 0;
+    int phoneVerify = 0;
 
-
-    printf(". . . Sistema de registro BEPEFY . . .\n");
+    printf("\n\n\n\n\n");
+    printf("\t\t\t\t\t\t******************************\n");
+    printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+    printf("\t\t\t\t\t\t******************************\n");
 
     user.id = searchIdFree();
     user.playListSize = -1;
     listSongNull(&user);
     user.isAdmin = 0;
 
-
-    while(nameVerify == 0 && option!=27)
+    while (nameVerify == 0 && option != 27)
     {
         system("cls");
-        printf("Ingresar nombre de usuario:\n");
-        printf("Maximo 20 caracteres.\n");    //verificar medidad del usuario.
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        gotoxy(48, 8);
+        printf(" Ingresar nombre de usuario:\n");
+        gotoxy(48, 10);
+        printf("   (Maximo 20 caracteres)\n");
+        gotoxy(56, 9);
         fflush(stdin);
         gets(username);
-        if(!searchUsername(username))
+        if (!searchUsername(username))
         {
-            strcpy(&user.username, username);
-            nameVerify=1;
+            strcpy(user.username, username);
+            nameVerify = 1;
         }
         else
         {
-            system("cls");
-            printf("El nombre de usuario no esta disponible \n");
-            printf("Desea cancelar la carga? Presione ESCAPE.\n");
-            printf("Para volver a intentarlo presione cualquier tecla.\n");
+            gotoxy(39, 12);
+            printf("--------------------------------------------------");
+            gotoxy(39, 13);
+            printf("\t    El nombre de usuario no esta disponible.\n");
+            gotoxy(38, 14);
+            printf(" \t     Desea cancelar la carga? Presione ESC.\n");
+            gotoxy(39, 15);
+            printf(" Para volver a intentarlo presione cualquier tecla.\n");
+            gotoxy(39, 16);
+            printf("--------------------------------------------------");
             fflush(stdin);
             option = getch();
+            system("cls");
         }
     }
 
-    while(passVerify == 0 && option!=27)
+    while (passVerify == 0 && option != 27)
     {
         system("cls");
-        printf("Ingresar contrasenia:\n");
-        printf("Longitud de 8 a 15 caracteres.\n");
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+
+        gotoxy(48, 8);
+        printf("     Ingresar contrasenia:\n");
+        gotoxy(48, 10);
+        printf("(Longitud de 8 a 15 caracteres)\n");
+        gotoxy(55, 9);
         fflush(stdin);
         gets(password);
-        if(strlen(password)<=15 && strlen(password)>=8)
+        if (strlen(password) <= 15 && strlen(password) >= 8)
         {
-            strcpy(&user.passWord, password);
+            strcpy(user.passWord, password);
             passVerify = 1;
         }
         else
         {
-            printf("Error. La contrasenia ingresada no posee la longitud expresada.\n");
-            printf("Desea cancelar la carga? Presione ESCAPE.\n");
-            printf("Para volver a intentarlo presione cualquier tecla.\n");
+            gotoxy(39, 11);
+            printf("--------------------------------------------------");
+            gotoxy(39, 12);
+            printf("\t Error. La contrasenia no cumple los requisitos.\n");
+            gotoxy(38, 13);
+            printf(" \t     Desea cancelar la carga? Presione ESC.\n");
+            gotoxy(39, 14);
+            printf(" Para volver a intentarlo presione cualquier tecla.\n");
+            gotoxy(39, 15);
+            printf("--------------------------------------------------");
             fflush(stdin);
             option = getch();
         }
     }
 
-    while(mailVerify == 0 && option!=27)
+    while (mailVerify == 0 && option != 27)
     {
         system("cls");
-        printf("Ingresar correo electronico:\n");
-        printf("Maximo 30 caracteres.\n");
-        fflush(stdin);
-        scanf("%s",&email);
-        if(verifyValidEmail(email) == 0)
-        {
 
-            printf("El email ya esta en uso, intente uno diferente\n");
-            printf("Desea cancelar la carga? Presione ESCAPE.\n");
-            printf("Para volver a intentarlo presione cualquier tecla.\n");
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+
+        printf("\t\t\t\t\t\t Ingresar correo electronico:\n");
+        gotoxy(50, 10);
+        printf("  (Maximo 30 caracteres)\n");
+         gotoxy(52, 9);
+        fflush(stdin);
+        gets(email);
+        if (verifyValidEmail(email) == 0)
+        {
+            gotoxy(32, 12);
+            printf("---------------------------------------------------------------");
+            printf("\n\t\t\t\tEl email ya esta en uso o es incorrecto, intente uno diferente.\n");
+            printf("\t\t\t\t            Desea cancelar la carga? Presione ESC.\n");
+            printf("\t\t\t\t      Para volver a intentarlo presione cualquier tecla.\n");
             fflush(stdin);
             option = getch();
         }
         else
         {
-            strcpy(&user.email, email);
-            mailVerify=1;
+            strcpy(user.email, email);
+            mailVerify = 1;
         }
-
     }
 
-    while(phoneVerify == 0 && option!=27)
+    while (phoneVerify == 0 && option != 27)
     {
         system("cls");
-        printf("Ingresar numero de telefono:\n");
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+
+        gotoxy(48, 8);
+        printf(" Ingresar numero de telefono:\n");
+        gotoxy(57, 9);
         fflush(stdin);
         gets(phoneNumber);
         phoneVerify = verifyPhone(phoneNumber);
-        if(phoneVerify == 1)
+        if (phoneVerify == 1)
         {
             printf("Numero de telefono ocupado, por favor eliga otro\n");
             printf("Desea cancelar la carga? Presione ESCAPE.\n");
@@ -111,92 +158,116 @@ void registerUser()
         }
         else
         {
-            strcpy(&user.phoneNumber, phoneNumber);
+            strcpy(user.phoneNumber, phoneNumber);
             phoneVerify = 1;
         }
     }
-    if(phoneVerify == 1)
+
+    if (phoneVerify == 1)
     {
         user.state = 1;
         saveUser(user);
+        system("cls");
+        printf("Usuario registrado con exito, disfrute de SpotyLite\n");
+        system("pause");
     }
+
     system("cls");
 }
 
 void loginMenuBepefy()
 {
-
     int option = 0;
-    int verify = 1;
 
     do
     {
 
-        printf("\nSELECCIONE UNA OPCION.\n");
+        system("cls");
 
-        printf("\n1. Registrarse\n");
-        printf("\n2. Login\n");
-        printf("\n3. Salir\n\n");
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\t**       MENU PRINCIPAL       **\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\t**                            **\n");
+
+        printf("\t\t\t\t\t\t**  1. Registrarse            **\n");
+        printf("\t\t\t\t\t\t**  2. Login                  **\n");
+        printf("\t\t\t\t\t\t**  3. Salir                  **\n");
+        printf("\t\t\t\t\t\t**                            **\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\tSeleccione una opcion: ");
 
         fflush(stdin);
         option = getch();
-        system("cls");
+
 
         switch(option)
         {
+            case 49:
+                registerUser();
+                break;
 
-        case 49:
-            registerUser();
-            break;
+            case 50:
+                subMenuLogin();
+                break;
 
-        case 50:
-            subMenuLogin();
-            break;
+            case 51:
+                printf("\n\t\t\t\t\t\tGracias por usar el programa.\n");
+                break;
 
-        case 51:
-
-            break;
-
-        default:
-
-            printf("Opcion incorrecta.\n");
-            system("pause");
-            system("cls");
-            break;
-
+            default:
+                printf("\n\t\t\t\t\t\tOpcion incorrecta. Intente de nuevo.\n");
+                system("pause");
+                break;
         }
-
-    }
-    while(option != 51);
-
-    printf("\nFIN DEL PROGRAMA\n");
+    } while(option != 51);
+    system("cls");
+    printf("\n\t\t\t\t\t\tFIN DEL PROGRAMA\n");
 }
 
 void subMenuLogin()
 {
-    char infoToLogin [20];
-    char password [15];
-    User*userP = NULL;
+    char infoToLogin[20];
+    char password[15];
+    User *userP = NULL;
     User user;
 
-    printf("\Login\n");
-
-    printf("Ingrese su nombre de usuario,email o numero de telefono: ");
-    fflush(stdin);
-    gets(infoToLogin);
-
-    printf("Ingrese su contrasenia: ");
-    fflush(stdin);
-    gets(password);
-
-    userP = accVerify(userP,infoToLogin,password);
-    if(userP)
+    do
     {
-        user = *userP;
         system("cls");
-        menuBepefy(user);
-    }
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**          LOGIN           **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\n");
+
+        printf("\t\t\t\tIngrese su nombre de usuario, email o numero de telefono: ");
+        fflush(stdin);
+        gets(infoToLogin);
+        printf("\n");
+        printf("\t\t\t\t\t\tIngrese su contrasenia: ");
+        fflush(stdin);
+        gets(password);
+
+
+        userP = accVerify(userP, infoToLogin, password);
+        if (userP != NULL)
+        {
+            user = *userP;
+            system("cls");
+            menuBepefy(user);
+        }
+        else
+        {
+            printf("\t\t\t\t\t\tAcceso denegado. Verifique sus credenciales.\n");
+            system("pause");
+        }
+    } while (userP == NULL);
+
     system("cls");
+    printf("\t\t\t\t\t\tFIN DEL PROGRAMA\n");
 }
 
 void menuBepefy(User user)
@@ -394,12 +465,12 @@ void menuLibrary()
 
         case 50:
 
-//                void showLibraryAtoZ(stSong[]);
+             showLibraryAtoZ();
             break;
 
         case 51:
 
-//                void showLibraryGenre(stSong[]);
+            showLibraryGenre();
             break;
         case 52:
 
@@ -525,9 +596,9 @@ void subMenuPlaylist(User user)
 {
     system("cls");
     int option;
-    showPlaylist(user);
 
     do{
+        showPlaylist(user);
         printf("\nDesea quitar elementos de la playlist?\n");
         printf("1.Quitar de playlist\n");
         printf("2.Volver al menu anterior\n");
@@ -611,6 +682,7 @@ void showUserAdm(){
 
         menuEditAdm(id);
     }
+    system("cls");
 }
 void adminMode(User *user){
     char aux[10];
@@ -635,7 +707,7 @@ void adminMode(User *user){
             system("cls");
         }
     }else {
-        printf("Codigo de validación incorrecto. Acceso denegado.\n");
+        printf("Codigo de validacion incorrecto. Acceso denegado.\n");
     }
 }
 int menuEditAdm(int id){
@@ -787,4 +859,10 @@ int menuEditAdm(int id){
 
         fclose(archi);
     }
+}
+void menuLoginPrint(){
+    printf("\n\n\n\n\n");
+    printf("\t\t\t\t\t\t******************************\n");
+    printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+    printf("\t\t\t\t\t\t******************************\n");
 }

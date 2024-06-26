@@ -8,7 +8,17 @@
 
 int main()
 {
-    loginMenuBepefy();
+    //loginMenuBepefy();
+    User aux;
+    FILE*archi=fopen("Users.bin","rb");
+    if(archi){
+        while(fread(&aux,sizeof(User),1,archi)){
+            printf("ID:%d",aux.id);
+            printf("Nombre:%s",aux.username);
+
+        }
+
+    }
     return 0;
 }
 
