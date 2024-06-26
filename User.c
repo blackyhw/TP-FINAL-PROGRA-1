@@ -263,7 +263,7 @@ void showUser(User user)
         printf(".................................................................\n");
         printf("Numero de Telefono:%s.\n", aux.phoneNumber);
         printf(".................................................................\n");
-        printf("Cantidad en la playlist:%d.\n",aux.playListSize);
+        printf("Cantidad en la playlist:%d.\n",aux.playListSize+1);
         printf(".................................................................\n");
         printf("Estado del Usuario:%d\n",aux.state);
         system("pause");
@@ -426,7 +426,6 @@ void updateUser(User user)
 void updatePlayList(User user,Song song)
 {
     FILE* archi = fopen("Users.bin", "r+b");
-    printf("%d",user.id);
     User aux;
     if (archi)
     {
@@ -441,39 +440,33 @@ void updatePlayList(User user,Song song)
         fclose(archi);
     }
 }
-int showPlaylist(User user)
-{
-    int flag = 1;
-    FILE* archi = fopen("Users.bin", "rb");
-    if (archi)
-    {
-        fseek(archi,sizeof(User)*user.id,SEEK_SET);
+void showPlaylist(User user){
 
-        User aux;
-        fread(&aux, sizeof(User), 1, archi);
-        fclose(archi);
+FILE* archi = fopen("Users.bin", "rb");
+    if (archi) {
 
-        if (aux.playListSize > 0)
-        {
-            for (int i = 0; i <= aux.playListSize; i++)
-            {
+    fseek(archi, sizeof(User) * user.id, SEEK_SET);
+
+    User aux;
+    fread(&aux, sizeof(User), 1, archi);
+    fclose(archi);
+
+    if (aux.playListSize != -1) {
+        printf("----------------------------------------\n");
+        for (int i = 0; i <= aux.playListSize; i++) {
+            if (aux.playList[i].id != -1) {
+                printf("Nombre de la cancion: %s\n", aux.playList[i].name);
+                printf("Genero: %s\n", aux.playList[i].genre);
+                printf("Anio: %d\n", aux.playList[i].age);
+                printf("Artista: %s\n", aux.playList[i].artist);
                 printf("----------------------------------------\n");
-                printf("Nombre de la cancion: %s\n",aux.playList[i].name);
-                printf("Genero: %s\n",aux.playList[i].genre);
-                printf("Anio: %d\n",aux.playList[i].age);
-                printf("Artista %s\n",aux.playList[i].artist);
             }
         }
-        else
-        {
-            printf("----------------------------------------\n");
-            printf("La playlist está vacía.\n");
-            system("pause");
-            system("cls");
-        }
-
+    } else {
+        printf("----------------------------------------\n");
+        printf("La playlist esta vacia.\n");
     }
-
+    }
 }
 void removeToPlaylist(User user){
     char nameSong[30];
@@ -485,60 +478,72 @@ void removeToPlaylist(User user){
 
 }
 
-void removeSongArch(User user,char*nameSong){
+void removeSongArch(User user, char *nameSong) {
     User aux;
-    FILE*archi = fopen("Users.bin","r+b");
+    FILE *archi = fopen("Users.bin", "r+b");
     int found = 0;
 
-    if(archi){
-            fseek(archi,sizeof(User)*user.id,SEEK_SET);
-            fread(&aux,sizeof(User),1,archi);
+    if (archi) {
+        fseek(archi, sizeof(User) * user.id, SEEK_SET);
+        fread(&aux, sizeof(User), 1, archi);
 
-            for(int i = 0;i<aux.playListSize;i++){
-                if(strstr(aux.playList[i].name, nameSong) != NULL){
-                    found = 1;
+        for (int i = 0; i <= aux.playListSize; i++) {
+            if (strstr(aux.playList[i].name, nameSong) != NULL) {
+                found = 1;
+                printf("Eliminando cancion: %s\n", aux.playList[i].name);
 
-                    for(int j = i;j<aux.playListSize -1;j++){
-                        aux.playList[j] = aux.playList[j+1];
-                    }
-                    aux.playListSize--;
-                    i--;
+                for (int j = i; j < aux.playListSize - 1; j++) {
+                    aux.playList[j] = aux.playList[j + 1];
                 }
+                aux.playListSize--;
+                i--;
             }
-            if(found == 1){
-                fseek(archi, -sizeof(User), SEEK_CUR);
-                fwrite(&aux,sizeof(User),1,archi);
-                printf("Cancion '%s' eliminada de la playlist.\n",nameSong);
-                system("pause");
-
-            }else{
-                printf("La cancion ingresada no se encontro en la playlist\n");
-                system("pause");
-            }
+        }
+        if (found == 1) {
+            fseek(archi, -sizeof(User), SEEK_CUR);
+            fwrite(&aux, sizeof(User), 1, archi);
+            printf("Canción '%s' eliminada de la playlist.\n", nameSong);
+        } else {
+            printf("La canción ingresada no se encontró en la playlist.\n");
+        }
+        fclose(archi);
     }
+    system("pause");
     system("cls");
 }
 
-int delUser(User*user){
+int delUser(User user){
+    system("cls");
+    char option = NULL;
+    printf("Esta seguro? una vez que se le de baja, tendra que comunicarse con un administrador para recuperar su cuenta.");
+    printf("\nPresione S/N:");
+    option = getch();
     int flag = 0;
-    User aux;
 
-    FILE*archi = fopen("Users.bin","r+b");
+    if(option == 's' || option == 'S'){
 
-    if(archi){
+        User aux;
 
-        fseek(archi,sizeof(User)*user->id ,SEEK_SET);
-        fwrite(&aux,sizeof(User),1,archi);
-        aux.state = 0;
+        FILE*archi = fopen("Users.bin","r+b");
 
-        fseek(archi, sizeof(User) * user->id, SEEK_SET);
-        fwrite(&aux, sizeof(User), 1, archi);
+        if(archi){
 
-        flag = 1;
-        fclose(archi);
+            fseek(archi,sizeof(User)*user.id ,SEEK_SET);
+            fread(&aux,sizeof(User),1,archi);
+            aux.state = 0;
+
+            fseek(archi, -sizeof(User), SEEK_CUR);
+            fwrite(&aux, sizeof(User), 1, archi);
+
+            flag = 1;
+            fclose(archi);
+    }
+        system("cls");
+        printf("Usuario eliminado con exito\n");
+        system("pause");
+        return flag;
     }
     system("cls");
-    printf("Usuario eliminado con exito");
     return flag;
 }
 
@@ -548,4 +553,19 @@ int amountUser(FILE*archi){
     int sizeUser = sizeof(User);
     long sizeArch = ftell(archi);
     return sizeArch / sizeUser;
+}
+void listSongNull(User*user){
+    Song aux;
+    songNull(&aux);
+    for(int i = 0;i<200;i++){
+        user->playList[i] =aux;
+    }
+
+}
+void songNull(Song*song){
+    song->age = -1;
+    strcpy(song->artist,"");
+    strcpy(song->genre,"");
+    song->id = -1;
+    strcpy(song->name,"");
 }
