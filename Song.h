@@ -13,7 +13,13 @@ typedef struct{
  char artist[50];
 }Song;
 
-void archToArr(Song*librarySongs);
+int archToArr(Song*librarySongs);
 int amountSongs();
 void showLibrary();
+int searchSongAtoZ(Song listSong[], int numberOfSong, int pos);
+void orderArrayAtoZ(Song listSong[], int numberOfSongs);
+void showLibraryAtoZ();
+int searchSongGenre(Song listSong[], int numberOfSong, int pos);
+void orderArrayGenre(Song listSong[], int numberOfSongs);
+void showLibraryGenre();
 #endif // SONG_H_INCLUDED

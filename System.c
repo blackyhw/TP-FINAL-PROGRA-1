@@ -394,12 +394,12 @@ void menuLibrary()
 
         case 50:
 
-//                void showLibraryAtoZ(stSong[]);
+            showLibraryAtoZ();
             break;
 
         case 51:
 
-//                void showLibraryGenre(stSong[]);
+            showLibraryGenre();
             break;
         case 52:
 
