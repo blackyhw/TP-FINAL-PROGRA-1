@@ -14,6 +14,7 @@ typedef struct{
   char passWord[21];
   int playListSize;
   int state;
+  int isAdmin;
   Song playList[200];
 
 }User;
@@ -34,9 +35,11 @@ User* editMenuUser(User*user);
 void showUser(User user);
 void updateUser(User user);
 void updatePlayList(User user,Song song);
-int showPlaylist(User user);
+void showPlaylist(User user);
 void removeToPlaylist(User user);
 void removeSongArch(User user,char*nameSong);
-int delUser(User*user);
+int delUser(User user);
 int amountUser();
+void listSongNull(User*user);
+void songNull(Song*song);
 #endif // USER_H_INCLUDED
