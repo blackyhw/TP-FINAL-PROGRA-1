@@ -16,7 +16,6 @@ void registerUser()
     int mailVerify=0;
     int phoneVerify=0;
 
-
     printf(". . . Sistema de registro BEPEFY . . .\n");
 
     user.id = searchIdFree();
@@ -123,80 +122,97 @@ void registerUser()
     system("cls");
 }
 
-void loginMenuBepefy()
-{
-
+void loginMenuBepefy(){
     int option = 0;
-    int verify = 1;
 
     do
     {
 
-        printf("\nSELECCIONE UNA OPCION.\n");
+        system("cls");
 
-        printf("\n1. Registrarse\n");
-        printf("\n2. Login\n");
-        printf("\n3. Salir\n\n");
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\t**       MENU PRINCIPAL       **\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\t**                            **\n");
+
+        printf("\t\t\t\t\t\t**  1. Registrarse            **\n");
+        printf("\t\t\t\t\t\t**  2. Login                  **\n");
+        printf("\t\t\t\t\t\t**  3. Salir                  **\n");
+        printf("\t\t\t\t\t\t**                            **\n");
+        printf("\t\t\t\t\t\t********************************\n");
+        printf("\t\t\t\t\t\tSeleccione una opcion: ");
 
         fflush(stdin);
         option = getch();
-        system("cls");
+
 
         switch(option)
         {
+            case 49:
+                registerUser();
+                break;
 
-        case 49:
-            registerUser();
-            break;
+            case 50:
+                subMenuLogin();
+                break;
 
-        case 50:
-            subMenuLogin();
-            break;
+            case 51:
+                printf("\n\t\t\t\t\t\tGracias por usar el programa.\n");
+                break;
 
-        case 51:
-
-            break;
-
-        default:
-
-            printf("Opcion incorrecta.\n");
-            system("pause");
-            system("cls");
-            break;
-
+            default:
+                printf("\n\t\t\t\t\t\tOpcion incorrecta. Intente de nuevo.\n");
+                system("pause");
+                break;
         }
-
-    }
-    while(option != 51);
-
-    printf("\nFIN DEL PROGRAMA\n");
+    } while(option != 51);
+    system("cls");
+    printf("\n\t\t\t\t\t\tFIN DEL PROGRAMA\n");
 }
 
-void subMenuLogin()
-{
-    char infoToLogin [20];
-    char password [15];
-    User*userP = NULL;
+void subMenuLogin(){
+    char infoToLogin[20];
+    char password[15];
+    User *userP = NULL;
     User user;
 
-    printf("\Login\n");
-
-    printf("Ingrese su nombre de usuario,email o numero de telefono: ");
-    fflush(stdin);
-    gets(infoToLogin);
-
-    printf("Ingrese su contrasenia: ");
-    fflush(stdin);
-    gets(password);
-
-    userP = accVerify(userP,infoToLogin,password);
-    if(userP)
+    do
     {
-        user = *userP;
         system("cls");
-        menuBepefy(user);
-    }
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\t\t\t\t\t\t**          LOGIN           **\n");
+        printf("\t\t\t\t\t\t******************************\n");
+        printf("\n");
+
+        printf("\t\t\t\tIngrese su nombre de usuario, email o numero de telefono: ");
+        fflush(stdin);
+        gets(infoToLogin);
+        printf("\n");
+        printf("\t\t\t\t\t\tIngrese su contrasenia: ");
+        fflush(stdin);
+        gets(password);
+
+
+        userP = accVerify(userP, infoToLogin, password);
+        if (userP != NULL)
+        {
+            user = *userP;
+            system("cls");
+            menuBepefy(user);
+        }
+        else
+        {
+            printf("\t\t\t\t\t\tAcceso denegado. Verifique sus credenciales.\n");
+            system("pause");
+        }
+    } while (userP == NULL);
+
     system("cls");
+    printf("\t\t\t\t\t\tFIN DEL PROGRAMA\n");
 }
 
 void menuBepefy(User user)
@@ -393,12 +409,10 @@ void menuLibrary()
             break;
 
         case 50:
-
             showLibraryAtoZ();
             break;
 
         case 51:
-
             showLibraryGenre();
             break;
         case 52:
@@ -525,9 +539,9 @@ void subMenuPlaylist(User user)
 {
     system("cls");
     int option;
-    showPlaylist(user);
 
     do{
+        showPlaylist(user);
         printf("\nDesea quitar elementos de la playlist?\n");
         printf("1.Quitar de playlist\n");
         printf("2.Volver al menu anterior\n");
@@ -575,7 +589,6 @@ void menuUserAdm(User user){
         case 50:
             break;
 
-
         default:
 
             printf("Opcion incorrecta.\n");
@@ -611,6 +624,7 @@ void showUserAdm(){
 
         menuEditAdm(id);
     }
+    system("cls");
 }
 void adminMode(User *user){
     char aux[10];
@@ -635,7 +649,7 @@ void adminMode(User *user){
             system("cls");
         }
     }else {
-        printf("Codigo de validación incorrecto. Acceso denegado.\n");
+        printf("Codigo de validacion incorrecto. Acceso denegado.\n");
     }
 }
 int menuEditAdm(int id){
@@ -787,4 +801,10 @@ int menuEditAdm(int id){
 
         fclose(archi);
     }
+}
+void menuLoginPrint(){
+    printf("\n\n\n\n\n");
+    printf("\t\t\t\t\t\t******************************\n");
+    printf("\t\t\t\t\t\t**   Sistema de registro    **\n");
+    printf("\t\t\t\t\t\t******************************\n");
 }

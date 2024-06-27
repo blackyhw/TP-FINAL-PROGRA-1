@@ -61,8 +61,9 @@ void showLibrary(){
         }
     }
 }
-
 int searchSongAtoZ(Song listSong[], int numberOfSong, int pos){
+
+
 
     Song aux;
 
