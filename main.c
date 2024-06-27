@@ -5,11 +5,13 @@
 #include <string.h>
 #include <ctype.h>
 #include "User.h"
-
+#include "Song.h"
 int main()
 {
-    //loginMenuBepefy();
-    }
+    desactivarMaximizar();
+    system("color 0B");
+    loginMenuBepefy();
+
     return 0;
 }
 
