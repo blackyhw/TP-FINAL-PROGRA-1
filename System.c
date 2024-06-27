@@ -198,101 +198,6 @@ void subMenuLogin()
     system("cls");
 }
 
-void loginMenuBepefy()
-{
-    int option = 0;
-
-    do
-    {
-
-        system("cls");
-
-
-        printf("\n\n\n\n\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\t**       MENU PRINCIPAL       **\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\t**                            **\n");
-
-        printf("\t\t\t\t\t\t**  1. Registrarse            **\n");
-        printf("\t\t\t\t\t\t**  2. Login                  **\n");
-        printf("\t\t\t\t\t\t**  3. Salir                  **\n");
-        printf("\t\t\t\t\t\t**                            **\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\tSeleccione una opcion: ");
-
-        fflush(stdin);
-        option = getch();
-
-
-        switch(option)
-        {
-            case 49:
-                registerUser();
-                break;
-
-            case 50:
-                subMenuLogin();
-                break;
-
-            case 51:
-                printf("\n\t\t\t\t\t\tGracias por usar el programa.\n");
-                break;
-
-            default:
-                printf("\n\t\t\t\t\t\tOpcion incorrecta. Intente de nuevo.\n");
-                system("pause");
-                break;
-        }
-    } while(option != 51);
-    system("cls");
-    printf("\n\t\t\t\t\t\tFIN DEL PROGRAMA\n");
-}
-
-void subMenuLogin()
-{
-    char infoToLogin[20];
-    char password[15];
-    User *userP = NULL;
-    User user;
-
-    do
-    {
-        system("cls");
-
-        printf("\n\n\n\n\n");
-        printf("\t\t\t\t\t\t******************************\n");
-        printf("\t\t\t\t\t\t**          LOGIN           **\n");
-        printf("\t\t\t\t\t\t******************************\n");
-        printf("\n");
-
-        printf("\t\t\t\tIngrese su nombre de usuario, email o numero de telefono: ");
-        fflush(stdin);
-        gets(infoToLogin);
-        printf("\n");
-        printf("\t\t\t\t\t\tIngrese su contrasenia: ");
-        fflush(stdin);
-        gets(password);
-
-
-        userP = accVerify(userP, infoToLogin, password);
-        if (userP != NULL)
-        {
-            user = *userP;
-            system("cls");
-            menuBepefy(user);
-        }
-        else
-        {
-            printf("\t\t\t\t\t\tAcceso denegado. Verifique sus credenciales.\n");
-            system("pause");
-        }
-    } while (userP == NULL);
-
-    system("cls");
-    printf("\t\t\t\t\t\tFIN DEL PROGRAMA\n");
-}
-
 void menuBepefy(User user)
 {
     int flag = 0;
@@ -863,7 +768,7 @@ int menuEditAdm(int id){
             flag = 1;
             break;
         default:
-            printf("No existe esa opción \n");
+            printf("No existe esa opciÃ³n \n");
             system("pause");
             system("cls");
             break;
