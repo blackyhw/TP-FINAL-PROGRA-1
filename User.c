@@ -67,8 +67,9 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
         }
     }
     if(user->state == 0){
-        printf("Este usuario esta dado de baja.\n");
-        printf("Por favor comuniquese con un Administrador para recuperar su cuenta\n");
+        printf("\n\n\t\t\t                  Este usuario esta dado de baja.\n\n");
+        printf("\t\t\t Por favor comuniquese con un Administrador para recuperar su cuenta\n\n");
+        printf("\t\t\t              ");
         system("pause");
         system("cls");
         return NULL;
@@ -77,7 +78,8 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
     {
         return user;
     }
-    printf("Contraseña Incorrecta.");
+    printf("\n\n\t\t\t                      Contrasenia Incorrecta.\n\n");
+    printf("\t\t\t                ");
     system("pause");
     return NULL;
 }
@@ -237,12 +239,12 @@ void saveUser(User user)
 
     FILE*archi = fopen("Users.bin", "ab");
     printf("%s",user.username);
-    if(archive)
+    if(archi)
     {
         fwrite(&user, sizeof(User),1, archi);
     }
 
-    fclose(archive);
+    fclose(archi);
 }
 
 void showUser(User user)
@@ -288,13 +290,17 @@ User* editMenuUser(User*user)
     int option;
     do
     {
+
         system("cls");
-        printf("Cual campo queres modificar?\n");
-        printf("1. Nombre de Usuario\n");
-        printf("2. Email \n");
-        printf("3. Numero de Telefono\n");
-        printf("4. Contrasenia\n");
-        printf("5. Volver al menu anterior\n");
+
+        printf("\n\n\n\n\n");
+        printf("\t\t\t\t\t\tCual campo queres modificar?\n");
+        printf("\t\t\t\t\t\t****************************\n\n");
+        printf("\t\t\t\t\t\t1.    Nombre de Usuario\n\n");
+        printf("\t\t\t\t\t\t2.           Email \n\n");
+        printf("\t\t\t\t\t\t3.    Numero de Telefono\n\n");
+        printf("\t\t\t\t\t\t4.       Contrasenia\n\n");
+        printf("\t\t\t\t\t\t5.  Volver al menu anterior\n\n");
 
         fflush(stdin);
         option = getch();
@@ -303,22 +309,19 @@ User* editMenuUser(User*user)
         {
 
         case 49:
-            system("cls");
-            printf("Ingrese el nuevo nombre de usuario:\n");
+            printf("\t\t\t\t\t\tIngrese el nuevo nombre de usuario:\n");
             fflush(stdin);
             scanf("%s",&newUsername);
-            system("cls");
             if(!searchUsername(newUsername))
             {
                 strcpy(user->username,newUsername);
-                printf("Se modifico correctamente.\n");
+                printf("\t\t\t\t\t\tSe modifico correctamente.\n");
                 system("pause");
             }
             else
             {
-                system("cls");
-                printf("El nombre de usuario no esta disponible\n");
-                printf("Por favor eliga otro o pulse ESC para cancelar\n");
+                printf("\t\t\t\t\t\tEl nombre de usuario no esta disponible\n");
+                printf("\t\t\t\t\t\tPor favor eliga otro o pulse ESC para cancelar\n");
                 fflush(stdin);
                 option = getch();
                 system("cls");
@@ -513,10 +516,10 @@ void removeSongArch(User user, char *nameSong) {
 }
 
 int delUser(User user){
-    system("cls");
+
     char option = NULL;
-    printf("Esta seguro? una vez que se le de baja, tendra que comunicarse con un administrador para recuperar su cuenta.");
-    printf("\nPresione S/N:");
+    printf("\n\n     Esta seguro? una vez que se le de baja, tendra que comunicarse con un administrador para recuperar su cuenta.");
+    printf("\n                                                    Presione S/N:");
     option = getch();
     int flag = 0;
 
@@ -538,10 +541,12 @@ int delUser(User user){
             flag = 1;
             fclose(archi);
     }
-        system("cls");
-        printf("Usuario eliminado con exito\n");
+
+        printf("\n\n\t\t\t\t\t\tUsuario eliminado con exito\n\n");
+        printf("\t\t\t                   ");
         system("pause");
         return flag;
+
     }
     system("cls");
     return flag;

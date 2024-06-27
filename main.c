@@ -8,7 +8,11 @@
 
 int main()
 {
+    desactivarMaximizar();
+    system("color 0B");
+
     loginMenuBepefy();
+
     return 0;
 }
 
