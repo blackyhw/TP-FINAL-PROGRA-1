@@ -32,3 +32,18 @@ void setConsoleBufferSize(int width, int height) {
         return;
     }
 }
+void desactivarMaximizar()
+{
+    HWND consoleWindow;
+    consoleWindow = GetConsoleWindow();
+    SetWindowLong(consoleWindow, GWL_STYLE,GetWindowLong(consoleWindow, GWL_STYLE) & ~WS_MAXIMIZEBOX & ~WS_SIZEBOX);
+}
+
+void ocultarCursor()
+{
+    printf("\e[?25l");
+}
+void mostrarCursor()
+{
+    printf("\e[?25h");
+}

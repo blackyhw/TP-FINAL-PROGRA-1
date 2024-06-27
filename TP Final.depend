@@ -93,78 +93,37 @@
 1717786125 source:c:\users\beto xd\documents\programacion\tp-final\user.c
 	"User.h"
 
-<<<<<<< HEAD
-1719457372 source:c:\users\gamer\documents\final\tpfinal\song.c
+1719392375 D
+
+1719458726 source:c:\users\gamer\documents\final\tpfinal\song.c
 	"Song.h"
 
-1719457384 c:\users\gamer\documents\final\tpfinal\song.h
+1719461569 c:\users\gamer\documents\final\tpfinal\song.h
 	<stdio.h>
 	<stdlib.h>
 
-1719457432 source:c:\users\gamer\documents\final\tpfinal\system.c
-=======
-<<<<<<< Updated upstream
-1719445026 source:c:\users\gamer\documents\final\tpfinal\song.c
-	"Song.h"
-
-1719445071 c:\users\gamer\documents\final\tpfinal\song.h
-	<stdio.h>
-	<stdlib.h>
-
-1719445026 source:c:\users\gamer\documents\final\tpfinal\system.c
-=======
-1719436670 source:c:\users\gamer\documents\final\tpfinal\song.c
-	"Song.h"
-
-1719442736 c:\users\gamer\documents\final\tpfinal\song.h
-	<stdio.h>
-	<stdlib.h>
-
-1719443640 source:c:\users\gamer\documents\final\tpfinal\system.c
->>>>>>> Stashed changes
->>>>>>> 08badadbd00d0746ffd99b2d66fcc90748d85768
+1719470032 source:c:\users\gamer\documents\final\tpfinal\system.c
 	"System.h"
 	"Song.h"
 	"User.h"
 
-<<<<<<< HEAD
-1719457154 c:\users\gamer\documents\final\tpfinal\system.h
-=======
-<<<<<<< Updated upstream
-1719445068 c:\users\gamer\documents\final\tpfinal\system.h
-=======
-1719442728 c:\users\gamer\documents\final\tpfinal\system.h
->>>>>>> Stashed changes
->>>>>>> 08badadbd00d0746ffd99b2d66fcc90748d85768
+1719452365 ated upstream
+
+1719443800 shed changes
+
+1719443800 adadbd00d0746ffd99b2d66fcc90748d85768
+	"System.h"
+	"Song.h"
+	"User.h"
 	<stdio.h>
 	<stdlib.h>
 	"User.h"
 	"Song.h"
 	"Behaviour.h"
-
-<<<<<<< HEAD
-1719457154 c:\users\gamer\documents\final\tpfinal\user.h
-=======
-<<<<<<< Updated upstream
-1719445066 c:\users\gamer\documents\final\tpfinal\user.h
-=======
-1719442724 c:\users\gamer\documents\final\tpfinal\user.h
->>>>>>> Stashed changes
->>>>>>> 08badadbd00d0746ffd99b2d66fcc90748d85768
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>
 	"Song.h"
-
-<<<<<<< HEAD
-1719457139 source:c:\users\gamer\documents\final\tpfinal\main.c
-=======
-<<<<<<< Updated upstream
-1719445026 source:c:\users\gamer\documents\final\tpfinal\main.c
-=======
-1719392375 source:c:\users\gamer\documents\final\tpfinal\main.c
->>>>>>> Stashed changes
->>>>>>> 08badadbd00d0746ffd99b2d66fcc90748d85768
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -172,16 +131,32 @@
 	<string.h>
 	<ctype.h>
 	"User.h"
+	"User.h"
 
-<<<<<<< HEAD
-1719452365 source:c:\users\gamer\documents\final\tpfinal\user.c
-=======
-<<<<<<< Updated upstream
-1719445026 source:c:\users\gamer\documents\final\tpfinal\user.c
-=======
-1719443800 source:c:\users\gamer\documents\final\tpfinal\user.c
->>>>>>> Stashed changes
->>>>>>> 08badadbd00d0746ffd99b2d66fcc90748d85768
+1719461569 c:\users\gamer\documents\final\tpfinal\system.h
+	<stdio.h>
+	<stdlib.h>
+	"User.h"
+	"Song.h"
+	"Behaviour.h"
+
+1719461569 c:\users\gamer\documents\final\tpfinal\user.h
+	<stdio.h>
+	<stdlib.h>
+	<malloc.h>
+	"Song.h"
+
+1719466221 source:c:\users\gamer\documents\final\tpfinal\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"User.h"
+	"Song.h"
+
+1719466197 source:c:\users\gamer\documents\final\tpfinal\user.c
 	"User.h"
 
 1717378645 source:c:\users\matias\documents\tp-final\song.c
@@ -191,10 +166,10 @@
 	<stdio.h>
 	<stdlib.h>
 
-1719445026 source:c:\users\gamer\documents\final\tpfinal\behaviour.c
+1719466103 source:c:\users\gamer\documents\final\tpfinal\behaviour.c
 	"Behaviour.h"
 
-1719445026 c:\users\gamer\documents\final\tpfinal\behaviour.h
+1719466111 c:\users\gamer\documents\final\tpfinal\behaviour.h
 	<stdio.h>
 	<conio.h>
 	<stdlib.h>

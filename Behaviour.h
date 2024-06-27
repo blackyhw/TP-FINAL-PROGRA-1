@@ -7,4 +7,7 @@
 
 void gotoxy(int posX,int posY);
 void setConsoleBufferSize(int width, int height);
+void desactivarMaximizar();
+void ocultarCursor();
+void mostrarCursor();
 #endif // BEHAVIOUR_H_INCLUDED

@@ -48,9 +48,7 @@ User* searchUsername(char*username)
 
     return user;
 }
-
-User* accVerify(User*user,char*infoToLogin,char*passWord)
-{
+User* accVerify(User*user,char *infoToLogin,char*passWord){
 
     user = searchUsername(infoToLogin);
     if(!user)
@@ -67,8 +65,9 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
         }
     }
     if(user->state == 0){
-        printf("Este usuario esta dado de baja.\n");
-        printf("Por favor comuniquese con un Administrador para recuperar su cuenta\n");
+        printf("\n\n\t\t\t                  Este usuario esta dado de baja.\n\n");
+        printf("\t\t\t Por favor comuniquese con un Administrador para recuperar su cuenta\n\n");
+        printf("\t\t\t              ");
         system("pause");
         system("cls");
         return NULL;
@@ -77,11 +76,11 @@ User* accVerify(User*user,char*infoToLogin,char*passWord)
     {
         return user;
     }
-    printf("Contraseña Incorrecta.");
+    printf("\n\n\t\t\t                      Contrasenia Incorrecta.\n\n");
+    printf("\t\t\t                ");
     system("pause");
     return NULL;
 }
-
 User*searchEmail(char*email)
 {
     User*user = NULL;
@@ -235,11 +234,10 @@ int verifyPhone(char phone[])
 void saveUser(User user)
 {
 
-    FILE*archi = fopen("Users.bin", "ab");
-    printf("%s",user.username);
+    FILE*archive = fopen("Users.bin", "ab");
     if(archive)
     {
-        fwrite(&user, sizeof(User),1, archi);
+        fwrite(&user, sizeof(User),1, archive);
     }
 
     fclose(archive);

@@ -9,7 +9,7 @@ typedef struct{
  int id;
  char name[50];
  int age;
- char genre[10];
+ char genre[14];
  char artist[50];
 }Song;
 
