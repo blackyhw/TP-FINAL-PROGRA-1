@@ -33,7 +33,7 @@ void showLibrary(){
     int j = 1;
     int max = amountSongs()/sizeof(Song);
     Song listSong[500];
-    archToArr(listSong);
+    int numberOfSongs = archToArr(listSong);
 
     for(int i= 0;i<max;i++){
         printf("----------------------------------------\n");
@@ -59,10 +59,7 @@ void showLibrary(){
                 if (i < 0) i = 0;
             }
         }
-        printf("");
-
     }
-
 }
 
 int searchSongAtoZ(Song listSong[], int numberOfSong, int pos){
