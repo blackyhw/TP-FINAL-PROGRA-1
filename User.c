@@ -263,7 +263,7 @@ void showUser(User user)
         printf(".................................................................\n");
         printf("Cantidad en la playlist:%d.\n",aux.playListSize+1);
         printf(".................................................................\n");
-        printf("Estado del Usuario:%d\n",aux.state);
+        printf("Estado del usuario::%s\n",aux.state == 1?"Activo":"Inactivo");
         system("pause");
         system("cls");
         fclose(archi);
@@ -302,7 +302,7 @@ User* editMenuUser(User*user)
 
         case 49:
             system("cls");
-            printf("Ingrese el nuevo nombre de usuario:\n");
+            printf("Ingrese el nuevo nombre de usuario:");
             fflush(stdin);
             scanf("%s",&newUsername);
             system("cls");
@@ -343,7 +343,7 @@ User* editMenuUser(User*user)
 
         case 51:
             system("cls");
-            printf("Ingrese el nuevo numero de telefono:\n");
+            printf("Ingrese el nuevo numero de telefono:");
             fflush(stdin);
             scanf("%s",&newPhone);
             if(verifyPhone(newPhone)==1)
@@ -362,7 +362,7 @@ User* editMenuUser(User*user)
 
         case 52:
             system("cls");
-            printf("Ingrese una nueva contrasenia:\n");
+            printf("Ingrese una nueva contrasenia:");
             printf("Longitud de 8 a 15 caracteres.\n");
             fflush(stdin);
             scanf("%s",&newPassWord);
@@ -485,30 +485,37 @@ void removeSongArch(User user, char *nameSong) {
         fseek(archi, sizeof(User) * user.id, SEEK_SET);
         fread(&aux, sizeof(User), 1, archi);
 
-        for (int i = 0; i <= aux.playListSize; i++) {
-            if (strstr(aux.playList[i].name, nameSong) != NULL) {
-                found = 1;
-                printf("Eliminando cancion: %s\n", aux.playList[i].name);
 
-                for (int j = i; j < aux.playListSize - 1; j++) {
-                    aux.playList[j] = aux.playList[j + 1];
+        if (aux.playListSize >= 0) {
+            for (int i = 0; i <= aux.playListSize; i++) {
+                if (strstr(aux.playList[i].name, nameSong) != NULL) {
+                    found = 1;
+                    printf("Eliminando cancion: %s\n", aux.playList[i].name);
+
+
+                    for (int j = i; j < aux.playListSize; j++) {
+                        aux.playList[j] = aux.playList[j + 1];
+                    }
+                    aux.playListSize--;
                 }
-                aux.playListSize--;
-                i--;
             }
         }
+
         if (found == 1) {
-            fseek(archi, -sizeof(User), SEEK_CUR);
+            fseek(archi, sizeof(User) * user.id, SEEK_SET);
             fwrite(&aux, sizeof(User), 1, archi);
             printf("\nCancion '%s' eliminada de la playlist.\n", nameSong);
         } else {
             printf("La cancion ingresada no se encontro en la playlist.\n");
         }
         fclose(archi);
+    } else {
+        printf("Error al abrir el archivo.\n");
     }
     system("pause");
     system("cls");
 }
+
 
 int delUser(User user){
     system("cls");

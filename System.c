@@ -223,7 +223,7 @@ void subMenuLogin()
 
     printf("\n\n\n\n\n");
     printf("\t\t\t\t\t        ------------------\n");
-    printf("\t\t\t\t\t        | INICIAR SECION |\n");
+    printf("\t\t\t\t\t        | INICIAR SESION |\n");
     printf("\t\t\t\t\t        ------------------\n\n");
 
     printf("\t\t\t       Ingrese su nombre de usuario, email o numero de telefono\n\n");
@@ -238,7 +238,7 @@ void subMenuLogin()
 
     printf("\n\n\n\n\n");
     printf("\t\t\t\t\t        ------------------\n");
-    printf("\t\t\t\t\t        | INICIAR SECION |\n");
+    printf("\t\t\t\t\t        | INICIAR SESION |\n");
     printf("\t\t\t\t\t        ------------------\n\n");
 
     printf("\t\t\t\t\t      Ingrese su contrasenia\n\n");
@@ -257,6 +257,10 @@ void subMenuLogin()
         menuBepefy(user);
     }
     system("cls");
+    printf("Usuario no registrado, Intente nuevamente\n");
+    system("pause");
+    system("cls");
+
 }
 
 void menuBepefy(User user)
@@ -689,6 +693,8 @@ void adminMode(User *user){
         }
     }else {
         printf("Codigo de validacion incorrecto. Acceso denegado.\n");
+        system("pause");
+        system("cls");
     }
 }
 int menuEditAdm(int id){
