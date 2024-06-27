@@ -122,97 +122,81 @@ void registerUser()
     system("cls");
 }
 
-void loginMenuBepefy(){
+void loginMenuBepefy()
+{
+
     int option = 0;
+    int verify = 1;
 
     do
     {
 
-        system("cls");
+        printf("\nSELECCIONE UNA OPCION.\n");
 
-
-        printf("\n\n\n\n\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\t**       MENU PRINCIPAL       **\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\t**                            **\n");
-
-        printf("\t\t\t\t\t\t**  1. Registrarse            **\n");
-        printf("\t\t\t\t\t\t**  2. Login                  **\n");
-        printf("\t\t\t\t\t\t**  3. Salir                  **\n");
-        printf("\t\t\t\t\t\t**                            **\n");
-        printf("\t\t\t\t\t\t********************************\n");
-        printf("\t\t\t\t\t\tSeleccione una opcion: ");
+        printf("\n1. Registrarse\n");
+        printf("\n2. Login\n");
+        printf("\n3. Salir\n\n");
 
         fflush(stdin);
         option = getch();
-
+        system("cls");
 
         switch(option)
         {
-            case 49:
-                registerUser();
-                break;
 
-            case 50:
-                subMenuLogin();
-                break;
+        case 49:
+            registerUser();
+            break;
 
-            case 51:
-                printf("\n\t\t\t\t\t\tGracias por usar el programa.\n");
-                break;
+        case 50:
+            subMenuLogin();
+            break;
 
-            default:
-                printf("\n\t\t\t\t\t\tOpcion incorrecta. Intente de nuevo.\n");
-                system("pause");
-                break;
+        case 51:
+
+            break;
+
+        default:
+
+            printf("Opcion incorrecta.\n");
+            system("pause");
+            system("cls");
+            break;
+
         }
-    } while(option != 51);
-    system("cls");
-    printf("\n\t\t\t\t\t\tFIN DEL PROGRAMA\n");
+
+    }
+    while(option != 51);
+
+    printf("\nFIN DEL PROGRAMA\n");
 }
 
-void subMenuLogin(){
-    char infoToLogin[20];
-    char password[15];
-    User *userP = NULL;
+void subMenuLogin()
+{
+    char infoToLogin [20];
+    char password [15];
+    User*userP = NULL;
     User user;
 
-    do
+    printf("\Login\n");
+
+    printf("Ingrese su nombre de usuario,email o numero de telefono: ");
+    fflush(stdin);
+    gets(infoToLogin);
+
+    printf("Ingrese su contrasenia: ");
+    fflush(stdin);
+    gets(password);
+
+    userP = accVerify(userP,infoToLogin,password);
+    if(userP)
     {
+        user = *userP;
         system("cls");
-
-        printf("\n\n\n\n\n");
-        printf("\t\t\t\t\t\t******************************\n");
-        printf("\t\t\t\t\t\t**          LOGIN           **\n");
-        printf("\t\t\t\t\t\t******************************\n");
-        printf("\n");
-
-        printf("\t\t\t\tIngrese su nombre de usuario, email o numero de telefono: ");
-        fflush(stdin);
-        gets(infoToLogin);
-        printf("\n");
-        printf("\t\t\t\t\t\tIngrese su contrasenia: ");
-        fflush(stdin);
-        gets(password);
-
-
-        userP = accVerify(userP, infoToLogin, password);
-        if (userP != NULL)
-        {
-            user = *userP;
-            system("cls");
-            menuBepefy(user);
-        }
-        else
-        {
-            printf("\t\t\t\t\t\tAcceso denegado. Verifique sus credenciales.\n");
-            system("pause");
-        }
-    } while (userP == NULL);
-
+        menuBepefy(user);
+    }
     system("cls");
-    printf("\t\t\t\t\t\tFIN DEL PROGRAMA\n");
+
 }
 
 void menuBepefy(User user)
@@ -598,6 +582,7 @@ void menuUserAdm(User user){
 
     }while(option != 50);
 }
+
 void showUserAdm(){
     int id = -1;
     User aux;
@@ -626,6 +611,7 @@ void showUserAdm(){
     }
     system("cls");
 }
+
 void adminMode(User *user){
     char aux[10];
     const char *code = "4818139";
@@ -652,6 +638,7 @@ void adminMode(User *user){
         printf("Codigo de validacion incorrecto. Acceso denegado.\n");
     }
 }
+
 int menuEditAdm(int id){
     User aux;
      FILE*archi = fopen("Users.bin","rb");
@@ -784,7 +771,7 @@ int menuEditAdm(int id){
             flag = 1;
             break;
         default:
-            printf("No existe esa opción \n");
+            printf("No existe esa opciÃ³n \n");
             system("pause");
             system("cls");
             break;
