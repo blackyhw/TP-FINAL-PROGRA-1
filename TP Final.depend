@@ -98,7 +98,7 @@
 1719458726 source:c:\users\gamer\documents\final\tpfinal\song.c
 	"Song.h"
 
-1719461569 c:\users\gamer\documents\final\tpfinal\song.h
+1719478650 c:\users\gamer\documents\final\tpfinal\song.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -140,7 +140,7 @@
 	"Song.h"
 	"Behaviour.h"
 
-1719461569 c:\users\gamer\documents\final\tpfinal\user.h
+1719478657 c:\users\gamer\documents\final\tpfinal\user.h
 	<stdio.h>
 	<stdlib.h>
 	<malloc.h>

@@ -829,7 +829,7 @@ int menuEditAdm(int id){
             flag = 1;
             break;
         default:
-            printf("No existe esa opción \n");
+            printf("No existe esa opciÃ³n \n");
             system("pause");
             system("cls");
             break;
