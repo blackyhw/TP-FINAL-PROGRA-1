@@ -8,7 +8,8 @@
 
 int main()
 {
-    loginMenuBepefy();
+    //loginMenuBepefy();
+    }
     return 0;
 }
 

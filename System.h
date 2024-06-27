@@ -23,4 +23,5 @@ void subMenuPlaylist(User user);
 void menuUserAdm(User user);
 void adminMode(User *user);
 int menuEditAdm(int id);
+void menuLoginPrint();
 #endif // SYSTEM_H_INCLUDED
